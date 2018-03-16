@@ -1,0 +1,74 @@
+<ion-content class = "hm_sign_bg" style="    background: #f0f0f0 !important; ">
+  <div class = "hm_wrapper">
+    <!-- <button ion-button class="hm_back_btn hm_button" (click)="goBack()"></button>-->
+    <div class = "hm_search_header">
+      <!-- <ion-icon class="backicon button icon-left ion-chevron-left button-clear button-dark backicon" name="arrow-dropleft-circle" (click)="goBack()" style="font-family: Ionicons;font-size: 36px;
+    padding: 4px 0px 4px 10px;
+        color: #162d38;"></ion-icon>-->
+      <div class = "helpytop2">
+        <!--<span style="color: #d0d0d0; font-size: 19px; font-weight: 400;">Login</span>-->
+      </div>
+    </div>
+    <div class = "hm_clear"></div>
+    <div class = "hm_signin_inner_wrapper">
+      <div class = "hm_logo">
+        <img src = "assets/img/hm_logo1.png" style="width: 60px;"><br>
+       <!-- <h5>login on</h5>-->
+        <img src = "assets/img/helpy.png" style="width: 80px;"><br>
+        <span>
+          <img src = "assets/img/hm_vector_underline.png" style="width: 80px;">
+        </span>
+      </div>
+      <br>
+      <br>
+      <!-- <div class="hm_sign_detail"> -->
+      <div class = "hm_sign_detail">
+        <!-- <div class="hm_mobile_number_div">
+          <select class="hm_mobile_code">
+            <option>+60</option>
+            <option>+96</option>
+            <option>+91</option>
+          </select>
+          <input class="hm_sign_number_input" placeholder="Mobile Number" [(ngModel)]="data.mobileNumber">
+          <div class="hm_clear"></div>
+        </div>  background:url("../assets/img/key.png");-->
+
+
+
+
+
+        <input class = "hm_signup_input username" style = "background: url(assets/img/username.png) white no-repeat scroll 6px 6px!important;background-size: 23px 23px !important; border: 1px solid #bfbfbf;" placeholder = "Mobile Number or Email" [(ngModel)] = "data.matchdata">
+        <input class = "hm_signup_input password" style = "background: url(assets/img/password.png) white no-repeat scroll 6px 3px!important;background-size: 24px 24px !important; border: 1px solid #bfbfbf;" placeholder = "Password" type = "password" [(ngModel)] = "data.password">
+
+
+
+
+        <button class = "hm_sign_btn" (click) = "login()">Login</button>
+        <p>
+          <strong (click) = "gotoForgetPwd()"> Forget Password </strong>
+        </p>
+        <!-- <br>-->
+        <br>
+        <p>Don't have account
+          <strong (click) = "gotoSignup()"> Signup </strong> here</p>
+        <!-- </div> -->
+      </div>
+    </div>
+  </div>
+  <br/>
+  <br>
+ 
+  <div text-center style = "margin: 0px 30px;">
+    <button ion-button text-capitalize block color = "fbColor" class="fb" style = "color: #FFF; border-radius: 100px;width:48%!important;float:left!important" (click) = "fbLogin()">
+      <ion-icon name = "logo-facebook" style = "font-family: Ionicons!important;"></ion-icon>
+      &nbsp;&nbsp;Facebook
+    </button>
+    <button ion-button text-capitalize block color = "gColor" class="gp" style = "color:#FFF; border-radius: 100px;width:48%!important;float:right!important;    margin-top: -40px;"> 
+      <ion-icon name = "logo-google" style = "font-family: Ionicons!important;"></ion-icon>
+      &nbsp;&nbsp;Google
+    </button>
+  </div>
+</ion-content>
+<ion-footer>
+  <p text-center>Powered By <strong>Helpy</strong></p>
+</ion-footer>

@@ -1,0 +1,78 @@
+<ion-header class = "hm_bg_color hm_header">
+  <div class = "hm_search_header">
+    <ion-icon class = "backicon button icon-left ion-chevron-left button-clear button-dark backicon" name = "arrow-dropleft-circle"
+            (click) = "goBack()" style = "font-family: Ionicons;font-size: 26px; padding: 4px 0px 4px 10px;
+    color: #D0D0D0;"></ion-icon>
+    <div class = "helpytop1">
+      <img src = "assets/img/helpywhite.png">
+      <span style = "color: #D0D0D0; font-size: 9px; font-weight: 600;">{{shopname}}</span>
+    </div>
+  </div>
+  <div class = "hm_clear"></div>
+</ion-header>
+<ion-content class = "hm_sign_bg">
+  <div class = "hm_search_bay">
+    <ion-searchbar placeholder = "Search for a Product" [(ngModel)] = "searchTerm" (ionInput) = "setFilteredItems()"></ion-searchbar>
+  </div>
+  <div class = "hm_ad_wrap">
+    <ion-slides pager = "true" #mySlider>
+      <!-- <ion-slide (click)="recommended()"> -->
+      <ion-slide>
+        <img src = "assets/img/b1.jpg">
+      </ion-slide>
+      <!-- <ion-slide (click)="recommended()"> -->
+      <ion-slide>
+        <img src = "assets/img/b2.jpg">
+      </ion-slide>
+      <!-- <ion-slide>
+            <img src="assets/img/hm_shop_banner2.jpeg">
+          </ion-slide> -->
+    </ion-slides>
+  </div>
+  <div>
+    <div style = "width: 100%;height: auto;" *ngIf = "showHideShopList">
+      <ul class = "clearfix" style = "padding-left:0;">
+        <!--bindings={
+  "ng-reflect-ng-for-of": "[object Object],[object Object"
+}-->
+        <li *ngFor = "let g of subSubChildShopList">
+          <div class = "hm_service_div subproductcustom" style = "text-align:center;">
+            <img src = "{{g.product_image}}" (click) = "productdetail(g)" >
+            <p style = "margin-bottom:0;"> {{g.product_name}} </p>
+          </div>
+          <div style = "text-align:center;width:100%;">
+            <span>RM {{g.product_price}}</span>
+          </div>
+          <div style = "border: 0.5px solid #D6D4D7; display:block; border-radius: 2px; width: 64px; margin: 0 auto;">
+            <button class = "hm_service_btn" (click) = "add(g)">+</button>
+            <span style = "padding-left: 4px; padding-right: 4px;">{{g.qty}}</span>
+            <button class = "hm_service_btn" (click) = "sub(g)">-</button>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <ion-infinite-scroll (ionInfinite) = "doInfinite($event)">
+    <!-- <ion-infinite-scroll-content>
+      <ion-spinner name = "bubbles"></ion-spinner>
+    </ion-infinite-scroll-content> -->
+  </ion-infinite-scroll>
+</ion-content>
+<ion-footer>
+  <ion-toolbar>
+    <ion-list class="list-md1">
+      <ion-item text-wrap>
+        <span>
+          <ion-icon name = "md-cart" style = "font-family: Ionicons!important;font-size: 24px;float: left;color:#EA5192;font-weight: bolder;"></ion-icon>&nbsp; Total Price
+          <b>RM {{price}}.00 </b>
+        </span>
+      </ion-item>
+      <button *ngIf = 'enableNextBtn==true' ion-button full style = "background-color:#EA5192" (click) = "orderInfo()">
+        Next
+      </button>
+      <button *ngIf = 'enableNextBtn!=true' disabled ion-button full style = "background-color:#EA5192" (click) = "orderInfo()">
+        Next
+      </button>
+    </ion-list>
+  </ion-toolbar>
+</ion-footer>

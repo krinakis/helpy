@@ -1,0 +1,33 @@
+<ion-content class = "hm_sign_bg">
+  <div class = "hm_wrapper">
+    <button ion-button class = "hm_back_btn hm_button" (click) = "goBack()"></button>
+    <div class = "hm_signin_inner_wrapper">
+      <div class = "hm_logo">
+        <img src = "assets/img/hm_logo1.png">
+        <h5>Forget Password</h5>
+        <h6>Helpy</h6>
+        <span><img src = "assets/img/hm_vector_underline.png"></span>
+      </div>
+      <br>
+      <br>
+      <div class = "hm_sign_detail">
+        <div class = "hm_mobile_number_div">
+          <select class = "hm_mobile_code" [(ngModel)] = "countryCode">
+            <option value = "60">+60</option>
+            <option value = "96">+96</option>
+            <option value = "91">+91</option>
+          </select>
+          <input class = "hm_sign_number_input" placeholder = "Mobile Number" [(ngModel)] = "tempMobile">
+          <div class = "hm_clear"></div>
+        </div>
+        <button class = "hm_sign_btn" (click) = "sendOTPtoUser()">Send OTP</button>
+        <p><strong (click) = "gotoLogin()"> Login</strong></p>
+        <!-- <br>-->
+        <br>
+        <p>Don't have account <strong (click) = "gotoSignup()"> Signup </strong> here</p>
+        <!-- </div> -->
+      </div>
+    </div>
+  </div>
+</ion-content>
+

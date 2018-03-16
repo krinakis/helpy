@@ -1,0 +1,248 @@
+<ion-header class = "hm_bg_color hm_header">
+  <div class = "hm_search_header">
+    <ion-icon class = "backicon button icon-left ion-chevron-left button-clear button-dark backicon" name = "arrow-dropleft-circle"
+            (click) = "goBack()" style = "font-family: Ionicons;font-size: 26px;
+    padding: 4px 0px 4px 10px;
+    color: #D0D0D0;"></ion-icon>
+    <div class = "helpytop1" style = "width: 35%;">
+      <img src = "assets/img/helpywhite.png" style = "width: 49%;">
+      <span style = "float: right; color: #D0D0D0; font-size: 18px; font-weight: 400;margin-top: 2px;">Runner</span>
+    </div>
+  </div>
+  <div class = "hm_clear"></div>
+</ion-header>
+<ion-content class = "hm_sign_bg">
+  <div class = "hm_service_list" style = "height:100%;width:100%;overflow:auto;">
+    <!-- <ul *ngIf='showSend' style="width: 100%;padding: 10px;">
+      <li *ngFor='let value of subMenuRunner; trackBy: index;' (click)="showMoreRunner($event,value)">
+        <div class="hm_service_div">
+          <img src="{{value.category_image}}">
+          <p>{{value.category_name}}</p>
+        </div>
+      </li>
+    </ul> -->
+    <div class = "hm_send_inner_wrapper" [hidden] = "showSend">
+      <ul>
+       <div>
+          <ul>
+            <li *ngFor = 'let subSub of subSubChildRunner; trackBy: index;' class="btnadd1" style=" width: 50% !important;" [class.btnAdd] = "selects1 === subSub" (click) = "showMoreRunner123(subSub)">
+              <div class = "hm_service_div" style = " height: auto!important;
+    font-size: 10px !important;">
+                <img src = "{{subSub.product_image}}" style = " width: 18%;">
+                <p style = "    text-align: center;
+    color: #ffffff !important;
+    margin: 0px;
+    font-size: 13px;
+        padding-top: 8px;
+    padding-left: 10px;
+    padding-bottom: 5px;"> {{subSub.product_name}} </p>
+              </div>
+              
+             <!--
+              <button class = "hm_service_btn" (click) = "add(subSub)">+</button>
+              {{subSub.qty}}
+              <button class = "hm_service_btn" (click) = "sub(subSub)">-</button>
+            -->
+            </li>
+          </ul>
+
+        </div>
+<div style="clear: both;"></div>
+
+      </ul>
+      <br>
+      
+      <div class = "hm_sign_detail">
+        <ion-label>Sender Details</ion-label>
+        <input class = "hm_signup_input" placeholder = "Address" style = "background: url(assets/img/address.png) no-repeat scroll 10px 5px!important;    background-size: 15px 15px!important;">
+        <input class = "hm_signup_input" placeholder = "Contact Person" style = "background: url(assets/img/person.png) no-repeat scroll 10px 5px!important;    background-size: 15px 15px!important;">
+        <input class = "hm_signup_input" placeholder = "Contact Number" style = "background: url(assets/img/contact.png) no-repeat scroll 10px 5px!important;    background-size: 15px 15px!important;">
+        <input class = "hm_signup_input" placeholder = "Note" style = "background: url(assets/img/notepad.png) no-repeat scroll 10px 5px!important;    background-size: 15px 15px!important;">
+        <hr>
+        <ion-label>Reciever Details</ion-label>
+        <input class = "hm_signup_input" placeholder = "Address" style = "background: url(assets/img/address.png) no-repeat scroll 10px 5px!important;    background-size: 15px 15px!important;">
+        <input class = "hm_signup_input" placeholder = "Contact Person" style = "background: url(assets/img/person.png) no-repeat scroll 10px 5px!important;    background-size: 15px 15px!important;">
+        <input class = "hm_signup_input" placeholder = "Contact Number" style = "background: url(assets/img/contact.png) no-repeat scroll 10px 5px!important;    background-size: 15px 15px!important;">
+        <input class = "hm_signup_input" placeholder = "Note" style = "background: url(assets/img/notepad.png) no-repeat scroll 10px 5px!important;    background-size: 15px 15px!important;">
+        <hr>
+        <ion-label style = "font-size:14px;">Item Description</ion-label>
+        <input class = "hm_signup_input" placeholder = "Description of goods" style = "background: url(assets/img/chat.png) no-repeat scroll 10px 5px!important;    background-size: 15px 15px!important;" [(ngModel)]="desciption">
+        <br>
+        <b *ngIf="workershowhide">Add Ons</b>
+          <hr *ngIf="workershowhide">
+        <div *ngIf="workershowhide">
+          <label class = "checkbox">
+       <input type = "checkbox" [(ngModel)]="checkbox" checked (click)="checkbox1()">      Add worker
+          </label>
+
+          <div *ngIf="workershowhide">
+            1.Additional worker
+            <button class = "hm_service_btn" (click) = "adds(subSubs)" [disabled]="disablepm">+</button>
+            <!-- {{subSubs.qty}} -->
+            {{no}}
+            <button class = "hm_service_btn" (click) = "subs(subSubs)" [disabled]="disablepm">-</button>
+            <br>
+            Driver will only be able to help Your
+            + RM 10 per shipper
+          </div>
+          <div style="padding: 10px 0px;">
+            <b>INSURANCE : </b>
+            <b>RM 0</b>
+          </div>
+        </div>
+        <div class = "hm_clear"></div>
+
+
+
+
+<!--
+<ion-footer>
+  <ion-toolbar>
+    <ion-list>
+      <button class = "hm_sign_btn" (click) = "updateSend()" style = " padding-left: 0px;background-position: right 1px top 14px !important;">Change Location</button>
+      </button>
+       <button class = "hm_sign_btn" (click) = "summary()">Order</button>
+      </button>
+    </ion-list>
+  </ion-toolbar>
+</ion-footer>
+-->
+
+
+       <!-- <ion-row>
+          <ion-col>
+            <button class = "hm_sign_btn" (click) = "updateSend()" style = " padding-left: 0px;background-position: right 1px top 14px !important;">Change Location</button>
+          </ion-col>
+          <ion-col>
+            <button class = "hm_sign_btn" (click) = "summary()">Order</button>
+          </ion-col>
+        </ion-row>-->
+      </div>
+      <br>
+      <br>
+      <br>
+      <br>
+    </div>
+    <div class = "hm_send_inner_wrapper" style = "height:100%;width:100%;overflow:auto;" [hidden] = "!showSend">
+      <!-- value="Petaling Jaya, Selangor, Malaysia"
+      value="Mid Valley City, 58000 Kuala Lumpur, Federal Territory of Kuala Lumpur, Malaysia" -->
+      <!-- <ion-buttons end>
+        <button ion-button (click)="addMarker()">Your Location</button>
+      </ion-buttons> -->
+      <ul *ngIf = 'showSend' style = "width: 100%;">
+        <li *ngFor = 'let value of subMenuRunner; trackBy: index;' [class.btnAdd] = "selects === value" (click) = "showMoreRunner(value)">
+          <div class = "hm_service_div">
+            <img src = "{{value.category_image}}">
+            <p>{{value.category_name}}</p>
+          </div>
+        </li>
+      </ul>
+      <!--
+      
+      <ion-toolbar no-border-top>
+          <ion-segment [(ngModel)]="runnertab">
+            <ion-segment-button value="Moto">
+              Moto
+            </ion-segment-button>
+            <ion-segment-button value="Van">
+              Van
+            </ion-segment-button>
+            <ion-segment-button value="Truck">
+              Truck
+            </ion-segment-button>
+            <ion-segment-button value="Lori">
+              Lori
+            </ion-segment-button>
+          </ion-segment>
+        </ion-toolbar>
+      
+      
+      <ion-content>
+        <div [ngSwitch]="runnertab">
+          <ion-list *ngSwitchCase="'Moto'">
+            <div style="width:100%; height:50%" #map="" id="map"></div>
+          </ion-list>
+      
+          <ion-list *ngSwitchCase="'Van'">
+          
+          </ion-list>
+      
+          <ion-list *ngSwitchCase="'Truck'">
+          
+          </ion-list>
+      
+      
+       <ion-list *ngSwitchCase="'Lori'">
+            </ion-list>
+      
+        </div>
+      -->
+      <ion-list class = "searchbox-wrap custmsrcw">
+        <ion-item>
+          <ion-searchbar (ionInput) = "updateSearch()" [(ngModel)] = "autocomplete.query" placeholder = "From"></ion-searchbar>
+          <div *ngIf = "tapshow">
+            <ion-item class = "addrlists" margin-horizontal *ngFor = "let item of autocompleteItems" (click) = "getlocation(item.description,'frst')">
+              {{ item.description }}
+            </ion-item>
+          </div>
+        </ion-item>
+        <ion-item>
+          <ion-searchbar (ionInput) = "updateSearch1()" [(ngModel)] = "autocomplete1.query" placeholder = "To"></ion-searchbar>
+          <div *ngIf = "tapshow1">
+            <ion-item class = "addrlists" margin-horizontal *ngFor = "let item of autocompleteItems1" (click) = "getlocation(item.description,'2nd')">
+              {{ item.description }}
+            </ion-item>
+          </div>
+        </ion-item>
+      </ion-list>
+      <div style = "    width: 98%;
+    height: 65%;
+    margin: 0px auto;
+    border-radius: 4px;
+    position: relative;
+    overflow: hidden;" #map id = "map" ></div>
+      <!-- <ul *ngIf='showSend' style="width: 100%;padding: 10px;">
+       <li *ngFor='let value of subMenuRunner; trackBy: index;' (click)="showMoreRunner($event,value)">
+         <div class="hm_service_div">
+           <img src="{{value.category_image}}">
+           <p>{{value.category_name}}</p>
+         </div>
+       </li>
+     </ul>-->
+     <div class="distancekm">
+        Distance between start to end is <strong> {{km | number : '1.2-2'}}</strong> km
+      </div>
+    </div>
+
+   
+  </div>
+  
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-list class="changebutton1">
+      <button class = "hm_sign_btn" (click) = "updateSend()" style = " padding-left: 0px;background-position: right 20px top 14px !important;">Change Location</button>
+          
+          </ion-list>
+    <ion-list class="changebutton2">
+            <button class = "hm_sign_btn" (click) = "summary()" style="background-position: right 46px top 14px !important;">Order</button>
+          </ion-list>
+  </ion-toolbar>
+
+</ion-footer>
+
+<ion-footer *ngIf = 'hideNextBtn==false'>
+  <ion-toolbar>
+    <ion-list class="list-md1">
+      <button *ngIf = 'enableNextBtn==true' ion-button full style = "background-color:#EA5192" (click) = "placeOrder()">
+        Next
+      </button>
+      <button *ngIf = 'enableNextBtn!=true' disabled ion-button full style = "background-color:#EA5192">
+        Next
+      </button>
+    </ion-list>
+  </ion-toolbar>
+</ion-footer>
+
+

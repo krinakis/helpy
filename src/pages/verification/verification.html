@@ -1,0 +1,86 @@
+<ion-content class = "hm_sign_bg">
+  <!-- <form [formGroup]="verfiyForm" (ngSubmit)="verify(verfiyForm.value)"> -->
+  <div class = "hm_wrapper">
+    <button ion-button class = "hm_back_btn hm_button" (click) = "dismiss()"></button>
+    <div class = "hm_signin_inner_wrapper">
+      <br>
+      <h3>Enter Verification code</h3>
+      <h4>We have sent you a 4 digit verification<br> code on</h4>
+      <h5>+ {{signupData.mobile}}</h5>
+      <br>
+      <br>
+      <div class = "hm_verification_code">
+        <input class = "hm_signup_input_verify" type = "number" [(ngModel)] = "OPTuser">
+        <!-- <input class="hm_signup_input_verify" type="number" formControlName="OPTuser" name="OPTuser" > -->
+        <!-- <ul>
+          <li>
+            <select class="hm_verification_code_select">
+              <option>0</option>
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+              <option>5</option>
+              <option>6</option>
+              <option>7</option>
+              <option>8</option>
+              <option>9</option>
+            </select>
+          </li>
+          <li>
+            <select class="hm_verification_code_select">
+              <option>0</option>
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+              <option>5</option>
+              <option>6</option>
+              <option>7</option>
+              <option>8</option>
+              <option>9</option>
+            </select>
+          </li>
+          <li>
+            <select class="hm_verification_code_select">
+              <option>0</option>
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+              <option>5</option>
+              <option>6</option>
+              <option>7</option>
+              <option>8</option>
+              <option>9</option>
+            </select>
+          </li>
+          <li>
+            <select class="hm_verification_code_select">
+              <option>0</option>
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+              <option>5</option>
+              <option>6</option>
+              <option>7</option>
+              <option>8</option>
+              <option>9</option>
+            </select>
+          </li>
+        </ul> -->
+        <h4><span id = "time" class = "text-primary">00:00</span></h4>
+        <div text-center *ngIf = "showReSendBtn">
+          <button ion-button class = "hm_btm_btn_resend" style = "color:#EA5192" (click) = "sendOTPtoUser()">Resend</button>
+        </div>
+      </div>
+    </div>
+    <div class = "hm_slide_btm_bay" (click) = verify()>
+      <button ion-button class = "hm_btm_btn">
+        <img src = "assets/img/hm_round_arw_blck.png">
+      </button>
+    </div>
+  </div>
+  <!-- </form> -->
+</ion-content>

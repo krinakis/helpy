@@ -1,0 +1,39 @@
+<ion-header class = "hm_bg_color hm_header">
+  <div class = "hm_search_header fw np">
+    <div class = "helpytop2">
+      <span style = "color: #D0D0D0; font-size: 19px; font-weight: 400;">Notifications</span>
+    </div>
+  </div>
+</ion-header>
+<ion-content>
+  <div>
+    <ion-list>
+      <ion-item class = "category_list" *ngFor = 'let noti of notification'>
+        
+        <ion-avatar item-left>
+          <img class = "notification-avatar" [src] = "imageprofile" onError = "this.src='assets/img/girlImg.jpeg'">
+          <p class = "name">{{noti.username}}</p>
+        </ion-avatar>
+        <h2 class = "comment-title">{{noti.title}}</h2>
+        <p class = "comment-subtitle" *ngIf="noti.read_status == '0' "><b>{{noti.message}}</b></p>
+        <p class = "comment-subtitle" *ngIf="noti.read_status == '1' ">{{noti.message}}</p>
+        <p class = "comment-time">{{noti.cdate}}</p>
+        <ion-icon name = "ios-arrow-forward" class = "right-arrow"></ion-icon>
+      </ion-item>
+      
+      <ion-item *ngIf="notificationnotfound">
+        <ion-row>
+          <ion-col>
+            <h2>
+              No Notification Found
+            </h2>
+          </ion-col>
+        </ion-row>
+      </ion-item>
+    </ion-list>
+  </div>
+
+</ion-content>
+<ion-footer>
+</ion-footer>
+  

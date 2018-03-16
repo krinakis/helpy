@@ -1,0 +1,41 @@
+page-summary {
+    
+    .hm_service_listing li {
+        width          : 100%;
+        list-style     : none;
+        border-bottom  : 1px solid #D8D8D8;
+        padding-bottom : 0px;
+        padding-top    : 10px;
+    }
+    .cc {
+        font-family : Ionicons !important;
+        font-size   : 27px;
+        float       : left;
+    }
+ 
+    .select-md .select-icon {display:none}
+ .hm_service_listing h6 {
+    color: #162D38;
+    font-weight: 500;
+    font-size: 16px;
+}
+
+
+
+.select-ios .select-icon {
+   display:none;
+}
+.radio-ios.radio-disabled, .item-ios.item-radio-disabled ion-label {
+    opacity: 0.9;
+    pointer-events: none;
+}
+.item-radio-checked.item-ios ion-label {
+    color: #ea5192;
+}
+
+.label-ios-primary, .item-input .label-ios-primary, .item-select .label-ios-primary, .item-datetime .label-ios-primary {
+    color: #ea5192;
+}
+}
+
+

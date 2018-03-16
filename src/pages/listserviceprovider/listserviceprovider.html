@@ -1,0 +1,46 @@
+
+<ion-header class = "hm_bg_color hm_header">
+  <!-- <ion-navbar>
+    <ion-title>serviceproviderinfo</ion-title>
+  </ion-navbar> -->
+   <div class = "hm_search_header">
+    <ion-icon class = "backicon button icon-left ion-chevron-left button-clear button-dark backicon" name = "arrow-dropleft-circle"
+            (click) = "goBack()" style = "font-family: Ionicons;font-size: 26px;
+    padding: 4px 0px 4px 10px;
+    color: #D0D0D0;"></ion-icon>
+    <div class = "helpytop2" style = "width: 80%">
+      <span style = "color: #D0D0D0;font-size: 14px;font-weight: 400;float: left;margin-top: 6px;">{{service_type_name}}</span>
+      <img src = "assets/img/helpywhite.png" style = "width: 30%; float: right;">
+    </div>
+  </div>
+</ion-header>
+
+
+<ion-content>
+	<ion-grid>
+		<ion-row class="noBorder">
+			<ion-col col-12 class="colHeight"></ion-col>
+			<ion-col col-12>
+				<img src="assets/img/searching-user.png" class="searchIcon">
+			</ion-col>
+			<ion-col col-12>
+				<h2 text-center class="Searchtitle">Searching Service Provider</h2>
+				<p text-center class="SearchText">You can now exit this app. We'll get back to you when sevice provider is found in: </p>
+			</ion-col>
+			<ion-col col-12>
+				<h2 text-center class="searchTime" *ngIf="!showornot">{{displaytime}}</h2>
+			</ion-col>
+			<ion-col col-12>
+        <h3 text-center class="cancelOrder" *ngIf="!showornot" (click)="cencle_order()">Cancel Order</h3>
+        <h3 text-center class="cancelOrder" *ngIf="showornot">Order is Placed</h3>
+			</ion-col>
+		</ion-row>
+	</ion-grid>
+
+</ion-content>
+<ion-footer>
+	<!-- <ion-row class="noBorder">
+		New Booking
+	</ion-row> -->
+	<button ion-button full no-margin class="newBooking" (click)="gotonew()">New Booking</button>
+</ion-footer>

@@ -1,0 +1,68 @@
+page-shop-list {
+    
+    ul li {
+        list-style : none;
+        width      : 33%;
+        float      : left;
+        margin     : 0px auto;
+        padding    : 8px;
+    }
+    .hm_service_div {
+        height    : 118px !important;
+        font-size : 10px !important;
+    }
+    .hm_search_input {
+        width               : 100%;
+        border              : none;
+        height              : 32px;
+        border-radius       : 6px;
+        font-size           : 15px;
+        font-weight         : 300;
+        background-color    : #FFF !important;
+        padding-left        : 20px;
+        background-position : right 7px top 6px !important;
+        background-size     : 20px !important;
+    }
+    .list-md {
+    margin: -1px 0 -5px;
+}
+    input.placeholder {
+        text-align : center;
+    }
+    ion-spinner * {
+        width  : 28px;
+        height : 28px;
+        stroke : #444;
+        fill   : #222;
+    }
+    
+    .swiper-container {
+        width    : 100%;
+        height   : 82%;
+        padding  : 0;
+        display  : -webkit-flex;
+        display  : -ms-flexbox;
+        display  : flex;
+        overflow : hidden;
+    }
+    
+    .hm_ad_wrap {
+        width  : 100%;
+        height : 100px;
+    }
+    ion-slides {
+        width   : 100%;
+        height  : auto;
+        display : block;
+    }
+    .slide-zoom {
+        display    : block;
+        width      : 100%;
+        text-align : center;
+        height     : 120px;
+        margin-top : -10px !important;
+    }
+
+    .hm_service_btn
+    {    font-size: 22px !important;}
+}

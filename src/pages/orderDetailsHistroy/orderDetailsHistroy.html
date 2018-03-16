@@ -1,0 +1,193 @@
+<ion-header class = "hm_bg_color hm_header">
+  <div class = "hm_search_header">
+    <ion-icon class = "backicon button icon-left ion-chevron-left button-clear button-dark backicon" name = "arrow-dropleft-circle" (click) = "goBack()" style = "font-family: Ionicons;font-size: 26px; padding: 6px 12px 6px 12px; color: #D0D0D0;"></ion-icon>
+    <div class = "helpytop2">
+      <span style = "color: #D0D0D0; font-size: 19px; font-weight: 400;">Order Details</span>
+    </div>
+  </div>
+</ion-header>
+<ion-content padding class = "hm_sign_bg">
+  <div class = "hm_message_div">
+    <ion-list style = "padding:0px;">
+      <ion-item style = " margin:0px;">
+        <ion-avatar item-start style = "float: left;">
+            <img [src] ="'http://www.huallow.com/helpy/'+order.userimage" onError = "this.src = 'assets/img/girlImg.jpeg'"  style = "width: 84px; height: 84px;">
+            <!-- <p class = "name">{{order.username}}</p> -->
+          <!-- <img src = "assets/img/girlImg.jpeg"> padding-left: 10px;-->
+          <h2 style = "color: #EA5192;max-width: 91px;">{{order.username}}</h2>
+        </ion-avatar>
+        <div style = "float: right;width: 80%;line-height: 10px;margin-top: 15px;">
+          <ion-row>
+            <ion-col>
+              Order Id&nbsp;&nbsp;:&nbsp;<b>{{order.id}}</b>
+            </ion-col>
+            <ion-col>
+              Status&nbsp;&nbsp;:&nbsp;
+              <b>{{statusText}}</b>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>
+              Gender&nbsp;&nbsp;:&nbsp;
+              <b> {{gender}}</b>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>
+              <rating [(ngModel)] = "rate"
+                      readOnly = "true"
+                      max = "5"
+                      emptyStarIconName = "star-outline"
+                      halfStarIconName = "star-half"
+                      starIconName = "star"
+                      nullable = "false">
+              </rating>
+            </ion-col>
+          </ion-row>
+    
+        </div>
+      </ion-item>
+    </ion-list>
+  
+    <ion-row>
+      <ion-col col-4 style = "padding-left: 0 !important;">
+        <button ion-button block style = "background-color:#EA5192" (click) = "callNumer(order.mobile)" icon-left [disabled] = "order.order_status == 3">
+          <ion-icon name = "md-call" style = "font-family: Ionicons!important;"></ion-icon>
+          Call
+        </button>
+      </ion-col>
+      <ion-col col-4 style = "padding-left: 0 !important; padding-right: 0 !important;">
+        <button ion-button block style = "background-color:#EA5192" (click) = "message()" icon-left [disabled] = "order.order_status == 3">
+          <ion-icon name = "ios-chatboxes" style = "font-family: Ionicons!important;"></ion-icon>
+          Message
+        </button>
+      </ion-col>
+      <ion-col col-4 style = "padding-right: 0 !important;">
+        <button ion-button block style = "background-color:#EA5192" (click) = "cancelbooking(order.id)" icon-left [disabled] = "order.order_status == 3">
+          <ion-icon name = "ios-close-circle-outline" style = "font-family: Ionicons!important;"></ion-icon>
+          Cancel
+        </button>
+      </ion-col>
+    </ion-row>
+    
+    <h3 style = "font-size: 1.7rem;">
+      <ion-icon name = "ios-clock-outline" style = "font-family: Ionicons!important;"></ion-icon>&nbsp;Time & Address
+    </h3>
+    <ion-row>
+      <ion-col>
+        <ion-icon name = "ios-calendar-outline" style = "font-family: Ionicons!important;"></ion-icon>
+        <!-- &nbsp;Date:&nbsp;<b>{{order.order_date | date:'d MMM yyyy - hh:mm a'}}</b> -->
+        &nbsp;Date:&nbsp;<b>{{order.requested_date | date:'d MMM yyyy'}}  {{order.requested_time}}</b>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-icon name = "ios-pin" style = "font-family: Ionicons!important;"></ion-icon>
+        &nbsp;Address:&nbsp;<b>{{order.shipping_address}}</b>
+      </ion-col>
+    </ion-row>
+    <h3 style = "    font-size: 1.7rem;">
+      <ion-icon name = "ios-briefcase-outline" style = "font-family: Ionicons!important;"></ion-icon>&nbsp;Service Details
+    </h3>
+    <ion-row *ngFor = "let item of order.products; trackBy: index;">
+      <ion-col>
+        <!-- {{item.category_name + ' ' + item.product_name}} -->
+        {{item.product_name}}
+      </ion-col>
+      <ion-col style = "text-align: right;">
+        {{item.order_quantity}}
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col col-8>
+    <h3 style = "    font-size: 1.7rem;">
+      <ion-icon name = "logo-usd" style = "font-family: Ionicons!important;"></ion-icon>&nbsp;Payment Method
+    </h3>
+  </ion-col>
+  <ion-col col-4>
+    <p class="pmargin" text-right>RM {{order.total_price}}</p>
+    </ion-col>
+  </ion-row>
+    <ion-row>
+      <ion-col>
+        Payment Method
+      </ion-col>
+      <ion-col style = "text-align: right;" text-uppercase>
+        {{order.payment_option}}
+      </ion-col>
+    </ion-row>
+    <h3 style = "    font-size: 1.7rem;">
+      <ion-icon name = "ios-book-outline" style = "font-family: Ionicons!important;"></ion-icon>&nbsp;More Details
+    </h3>
+    <ion-row>
+      <ion-col>
+        (Note)
+      </ion-col>
+      <ion-col>
+        <!--I will be available at home between 8 am to 9pm.-->
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <button ion-button block style = "background-color:#EA5192" (click) = "track()" icon-left [disabled] = "order.order_status == 3 || order.order_status == 0">
+          <ion-icon name = "md-call" style = "font-family: Ionicons!important;"></ion-icon>
+          track-order
+        </button>
+      </ion-col>
+    </ion-row>
+    <!-- <li (click) ="feedback()">
+				<div class="hm_message_pic">
+				</div>
+				<div class="hm_message_detail">
+					<h4>Shrayesh Diets</h4>
+					<p><span><img src="assets/img/hm_star.png">4.3</span><span><img src="assets/img/hm_comment.png">10 Comments</span></p>
+				</div>
+				<div class="hm_message_date">
+					<h5>$ 50000</h5>
+				</div>
+				<div class="hm_clear"></div>
+			</li>
+			<li (click) ="feedback()">
+				<div class="hm_message_pic">
+				</div>
+				<div class="hm_message_detail">
+					<h4>Shrayesh Diets</h4>
+					<p><span><img src="assets/img/hm_star.png">4.3</span><span><img src="assets/img/hm_comment.png">10 Comments</span></p>
+				</div>
+				<div class="hm_message_date">
+					<h5>$ 50000</h5>
+				</div>
+				<div class="hm_clear"></div>
+			</li>
+			<li (click) ="feedback()">
+				<div class="hm_message_pic">
+				</div>
+				<div class="hm_message_detail">
+					<h4>Shrayesh Diets</h4>
+					<p><span><img src="assets/img/hm_star.png">4.3</span><span><img src="assets/img/hm_comment.png">10 Comments</span></p>
+				</div>
+				<div class="hm_message_date">
+					<h5>$ 50000</h5>
+				</div>
+				<div class="hm_clear"></div>
+			</li>
+			<li (click) ="feedback()">
+				<div class="hm_message_pic">
+				</div>
+				<div class="hm_message_detail">
+					<h4>Shrayesh Diets</h4>
+					<p><span><img src="assets/img/hm_star.png">4.3</span><span><img src="assets/img/hm_comment.png">10 Comments</span></p>
+				</div>
+				<div class="hm_message_date">
+					<h5>$ 50000</h5>
+				</div>
+				<div class="hm_clear"></div>
+			</li> -->
+    <!-- </ul> -->
+  </div>
+</ion-content>
+<!-- <ion-footer>
+<div class="hm_btn_bottom" >
+<button ion-button class="hm_hired_btn">Whom have you Hired ?</button>
+</div>
+</ion-footer> -->

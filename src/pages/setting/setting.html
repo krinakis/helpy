@@ -1,0 +1,50 @@
+
+<ion-header class = "hm_bg_color hm_header">
+  <button ion-button class = "hm_header_btn hm_float_left hm_back_icon" (click) = "goBack()"></button>
+  <div class = "hm_search_header">
+    Settings
+  </div>
+  <div class = "hm_clear"></div>
+</ion-header>
+<ion-content padding class = "hm_sign_bg">
+  <ion-list-header>
+    App Settings
+  </ion-list-header>
+  <ion-list radio-group>
+    <ion-item>
+      <ion-label> Push Notifications</ion-label>
+      
+      <ion-toggle [(ngModel)]="pushnoti"  (ionChange)="Change_pushnoti();"></ion-toggle>
+    </ion-item>
+  </ion-list>
+  <ion-list radio-group>
+    <ion-item>
+      <ion-label>Email Notifications</ion-label>
+      
+      <ion-toggle [(ngModel)]="emailnoti"  (ionChange)="Change_emailnoti();"></ion-toggle>
+    </ion-item>
+  </ion-list>
+  <!-- <ion-list radio-group >
+      <ion-item>
+        <ion-label>SMS Notifications</ion-label>
+        <ion-toggle [(ngModel)]="autoManufacturers2"></ion-toggle>
+      </ion-item>
+    </ion-list> -->
+  <ion-list-header>
+    Promotional Settings
+  </ion-list-header>
+  <ion-list radio-group>
+    <ion-item>
+      <ion-label>Promotional Push Notifications</ion-label>
+      
+      <ion-toggle [(ngModel)]="promotionalsettingnoti"  (ionChange)="Change_promotionalnoti();"></ion-toggle>
+    </ion-item>
+  </ion-list>
+  <ion-list radio-group>
+    <ion-item>
+      <ion-label>Promotional Emails</ion-label>
+      
+      <ion-toggle [(ngModel)]="promotionalemailnoti"  (ionChange)="Change_promtionalemail();"></ion-toggle>
+    </ion-item>
+  </ion-list>
+</ion-content>

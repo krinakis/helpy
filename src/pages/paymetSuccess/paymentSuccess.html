@@ -1,0 +1,62 @@
+<ion-header class = "hm_bg_color hm_header">
+  <!--<button ion-button class = "hm_header_btn hm_float_left hm_back_icon" (click) = "goBack()"></button>-->
+  <div class = "hm_search_header" style="    width: 75% !important;
+    padding: 12px !important;">
+    <b> Payment Success</b>
+  </div>
+  <div class = "hm_clear"></div>
+</ion-header>
+<ion-content padding>
+  <div class = "hm_service_listing">
+    <div text-center>
+      <h2> Thank You ! </h2>
+      <h3> Your Order is placed </h3>
+    </div>
+    <div style = "text-align:center">
+      <img src = "assets/img/success.png" style = "height:100px;width:100px;">
+    </div>
+    <!-- <h6>Address</h6>
+    <div class="hm_address_bay">
+      <div class="hm_address_section">
+        Level 14, Tower B, Plaza 33 <br> Kuala Lumpur,Kuala Lumpur, 47302 Malaysia
+      </div>
+      <div class="hm_clear"></div>
+    </div> -->
+    <h6>Summary</h6>
+    <div class = "hm_summary_report">
+      <ul>
+        <li>
+          <div class = "child1">Sub Total</div>
+          <div class = "child2">RM {{totalPrice}}.00</div>
+          <div class = "hm_clear"></div>
+        </li>
+        <li>
+          <div class = "child1">Coupon Discount</div>
+          <div class = "child2">-RM 0.00</div>
+          <div class = "hm_clear"></div>
+        </li>
+        <br>
+        <hr>
+        <li>
+          <div class = "child1"><strong>Total</strong></div>
+          <div class = "child2"><strong>RM {{totalPrice}}.00</strong></div>
+          <div class = "hm_clear"></div>
+        </li>
+      </ul>
+      <!--<button ion-button full style = "background-color:#EA5192" (click) = "feedback()" style="width: 50%;
+    margin: 20px auto;
+    border-radius: 20px;    background: #ea5192;">
+        Feedback
+      </button>-->
+    </div>
+  </div>
+</ion-content>
+<ion-footer>
+    <!-- <button ion-button full style = "background-color:#EA5192"(click)="Feedback()">
+       View Feedback
+      </button> -->
+
+  <button ion-button full style = "background-color:#EA5192" (click) = "home()">
+    Do More With Helpy
+  </button>
+</ion-footer>

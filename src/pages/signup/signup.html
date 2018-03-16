@@ -1,0 +1,38 @@
+<ion-content class = "hm_sign_bg">
+  <div class = "hm_wrapper">
+    <button ion-button class = "hm_back_btn hm_button" (click) = "goBack()"></button>
+    <div class = "hm_signin_inner_wrapper">
+      <div class = "hm_logo">
+        <img src = "assets/img/hm_logo1.png">
+        <h5>Signup on</h5>
+        <h6>Helpy</h6>
+        <span><img src = "assets/img/hm_vector_underline.png"></span>
+      </div>
+      <br>
+      <br>
+      <div class = "hm_sign_detail">
+        <div class = "hm_sign_detail">
+          <div class = "hm_mobile_number_div">
+            <select class = "hm_mobile_code" [(ngModel)] = "countryCode">
+              <option value = "60">+60</option>
+              <option value = "96">+96</option>
+              <option value = "91">+91</option>
+            </select>
+            <input class = "hm_sign_number_input" placeholder = "Mobile Number" [(ngModel)] = "tempMobile" (blur) = "checkMobile()">
+            <div class = "hm_clear"></div>
+          </div>
+          <input class = "hm_signup_input" placeholder = "Email" [(ngModel)] = "data.email" (blur) = "checkEmail()">
+          <input class = "hm_signup_input" placeholder = "Full name" [(ngModel)] = "data.fullname">
+          <input class = "hm_signup_input" placeholder = "Password" type = "password" [(ngModel)] = "data.password">
+          <!-- <button class="hm_sign_btn" (click)="verification()">Next</button> -->
+          <button class = "hm_sign_btn" (click) = "signup()">Signup</button>
+          <br>
+          <p>By signing up, you agree to our <strong>terms of use</strong> and<br>
+            <strong>privacy policy</strong></p>
+          <br>
+          <p>Already have an account<strong (click) = "gotoLogin()"> Login </strong></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</ion-content>

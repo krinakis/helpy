@@ -1,0 +1,110 @@
+<ion-header class = "hm_bg_color hm_header">
+  <div class = "hm_search_header">
+    <ion-icon class = "backicon button icon-left ion-chevron-left button-clear button-dark backicon" name = "arrow-dropleft-circle"
+            (click) = "goBack()" style = "font-family: Ionicons;font-size: 26px;
+          padding: 4px 0px 4px 10px;
+          color: #D0D0D0;"></ion-icon>
+    <div class = "helpytop1" style = "width:42%">
+      <img src = "assets/img/helpywhite.png">
+      <span style = "color: #D0D0D0; font-size: 9px; font-weight: 600;height: 24px;display: inline-block;vertical-align: bottom;width: 65px;overflow: hidden;text-overflow: ellipsis;
+        white-space: pre;">{{shopname}}</span>
+    </div>
+  </div>
+  <!--<button ion-button class="hm_header_btn hm_float_left hm_back_icon" (click)="goBack()"></button>
+      <div class="hm_search_header">
+            <span style="font-size:16px;">  <b> Helpy Shop </b> </span>
+          </div>-->
+  <!-- <span>
+            <img src="assets/img/genders.png">
+          </span> -->
+  <!--<button ion-button class="hm_header_btn hm_float_right hm_search_icon" (click)=goToHistory()>
+        <img src="assets/img/history.png">
+      </button>-->
+  <div class = "hm_clear"></div>
+</ion-header>
+<ion-content class = "hm_sign_bg" (ionScroll) = "scrollHandler($event)">
+  <div class = "hm_service_list" style = "height:100%;width:100%;overflow:auto;">
+    <div>
+      <ion-icon name = "ios-pin-outline" style = "float: left;font-family: Ionicons!important;font-size: 17px;color:white; width: 80%; padding: 10px;">
+        <span style = "font-size: 10px;display:inline-block;width:200px;font-family:sans-serif;">{{loc}}</span>
+      </ion-icon>
+      <button ion-button class = "hm_header_btn hm_float_right hm_search_icon" (click) = "location()" style = "float: right;    text-transform: capitalize;">Change</button>
+    </div>
+    <div class = "hm_search_bay">
+      <!-- <ion-searchbar [(ngModel)] = "searchTerm" (ionInput) = "setFilteredItems()"></ion-searchbar> -->
+      <!-- <input class="hm_search_input" placeholder="Search for a Product" [(ngModel)]="searchTerm" (ionInput)="setFilteredItems()"> -->
+
+      <ion-searchbar [(ngModel)] = "searchTerm" (ionInput)="setFilteredItems($event)">
+      </ion-searchbar>
+      <ul *ngIf="search" class="homeSearch">
+        <li *ngFor="let s of searchdata" (click)="getVal(s)" class="searchLi">
+          <span>{{s.category_name}}</span>
+        </li>
+      </ul>
+      
+    </div>
+    <div style = "clear: both;"></div>
+    <div class = "force spf">
+      <ion-row *ngIf = "showme">
+        <ion-col col-3 *ngFor = 'let value of SubMenuShop; trackBy: index;' class = "hm_border_top_none hm_border_left_none spf30">
+          <div class = "hm_service_div" [class.active] = "selected==value.id" style = "text-align: center;" (click) = "showMoreShop(value)">
+            <img src = "{{value.category_image}}">
+            <p>{{value.category_name}}</p>
+          </div>
+        </ion-col>
+      </ion-row>
+    </div>
+    <div *ngIf = "showHideShop && !showme" text-center id = "bottomRow">
+      <h4 style = "color: #FFFFFF;
+    padding: 6px 10px;
+    font-size: 16px;
+    text-align: left;
+    background: #162D38;">{{shopname}}</h4>
+      <ion-row>
+        <div class = "force">
+            <!--<button ion-button class = "hm_header_btn hm_float_right gttsbtn" (click) = "showshops()">Go to Shop</button>-->
+          <ul>
+            <li *ngFor = 'let subChild of subChildShop; trackBy: index' (click) = "openPagex(subChild)" class = "hm_border_top_none hm_border_left_none"
+                    style = "margin-left: 5px;    width: 30%;    float: left;">
+              <div class = "hm_service_div subproductcustom">
+                <img src = "{{subChild.category_image}}">
+                <p text-wrap> {{subChild.category_name}} </p>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </ion-row>
+    </div>
+    <div style = "clear:both">
+    </div>
+    <div *ngIf = "showHideShopChild">
+      <div class = "btmnospbx" style = "width: 100%;">
+        <ul [hidden] = "dontShowPlusButtons" text-center>
+          <li *ngFor = 'let subSub of subSubChildShop; trackBy: index; let i =index'>
+            <div class = "hm_service_div subproductcustom">
+              <img src = "{{subSub.product_image}}" style = "width: 80px;">
+              <p> {{subSub.product_name}} </p>
+            </div>
+            <!--<div style = "border: 0.5px solid #D6D4D7; display: inline-block; border-radius: 2px;">
+              <button class = "hm_service_btn" (click) = "add(subSub)">+</button>
+              <span style = "padding-left: 4px; padding-right: 4px;">{{subSub.qty}}</span>
+              <button class = "hm_service_btn" (click) = "sub(subSub)">-</button>
+            </div>-->
+          </li>
+        </ul>
+        <ul [hidden] = "!dontShowPlusButtons" style = "width:100%;">
+          <li *ngFor = 'let subSub of inHouseService; let i= index; trackBy: index;' (click) = "addThisItem($event,subSub)">
+            <div class = "hm_service_div">
+              <img src = "{{subSub.product_image}}">
+              <p> {{subSub.product_name}} </p>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <!-- </ion-card> -->
+    <br>
+    <br>
+    <br>
+  </div>
+</ion-content>

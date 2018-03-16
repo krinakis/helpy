@@ -1,0 +1,21 @@
+<ion-content class = "hm_sign_bg">
+  <!-- <form [formGroup]="verfiyForm" (ngSubmit)="verify(verfiyForm.value)"> -->
+  <div class = "hm_wrapper">
+    <button ion-button class = "hm_back_btn hm_button" (click) = "dismiss()"></button>
+    <div class = "hm_signin_inner_wrapper">
+      <br>
+      <h3>Reset your password</h3>
+      <h5>+ {{data.mobile}}</h5>
+      <br>
+      <br>
+      <div class = "hm_verification_code">
+        <input class = "hm_signup_input_verify" type = "text" [(ngModel)] = "data.passwod1" placeholder = "Password">
+      </div>
+      <div class = "hm_verification_code">
+        <input class = "hm_signup_input_verify" type = "text" [(ngModel)] = "data.passwod2" placeholder = "Confirm Password">
+      </div>
+    </div>
+    <button class = "hm_sign_btn" (click) = "reset()">Reset Password</button>
+  </div>
+  <!-- </form> -->
+</ion-content>

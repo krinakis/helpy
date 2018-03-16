@@ -1,0 +1,62 @@
+<!--
+  Generated template for the MaplocationPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header class = "hm_bg_color hm_header">
+  <!--<button ion-button class="hm_header_btn hm_float_left hm_back_icon" (click)="goBack()"></button>
+  <div class="hm_search_header">
+    BOOKING CONFIRMATION
+  </div>-->
+  <div class = "hm_search_header">
+    <ion-icon class = "backicon button icon-left ion-chevron-left button-clear button-dark backicon" name = "arrow-dropleft-circle"
+            (click) = "goBack()" style = "font-family: Ionicons;font-size: 26px;
+    padding: 4px 0px 4px 10px;
+    color: #D0D0D0;"></ion-icon>
+    <div class = "helpytop2" style = " width: 80%">
+      <span style = "color: #D0D0D0;font-size: 14px;font-weight: 400;float: left;margin-top: 6px;">Choose Address</span>
+      <img src = "assets/img/helpywhite.png" style = "width: 30%; float: right;">
+    </div>
+  </div>
+  <div class = "hm_clear"></div>
+</ion-header>
+<ion-content padding>
+  <ion-list class = "searchbox-wrap">
+    <ion-item>
+      <ion-searchbar (ionInput) = "updateSearch()" [(ngModel)] = "autocomplete.query" placeholder = "Type Your location..."></ion-searchbar>
+    </ion-item>
+    <div *ngIf = "tapshow">
+      <ion-item class = "addrlists" margin-horizontal *ngFor = "let item of autocompleteItems" (click) = "getlocation(item.description)">
+        {{ item.description }}
+      </ion-item>
+    </div>
+  </ion-list>
+  <div class = "map-warp">
+    <div class = "map" #map id = "map">
+      <div class = "marker">
+        <p>
+          <span class = "pin"></span>
+          <span class = "bar"></span>
+          <span class = "loader"></span>
+        </p>
+      </div>
+    </div>
+  </div>
+</ion-content>
+<ion-footer>
+  <div class = "hm_btn_bottom">
+    <div class = "hm_allservice_footer">
+      <div class = "hm_amount" style = "font-size:10px" *ngIf = "!locating">
+        {{loct}}
+      </div>
+      <div class = "hm_amount" *ngIf = "locating">
+        locating......
+      </div>
+      <div class = "hm_service_continue" (click) = "goback()">
+        Continue
+      </div>
+      <div class = "hm_clear"></div>
+    </div>
+  </div>
+</ion-footer>

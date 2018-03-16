@@ -1,0 +1,121 @@
+page-shop {
+    .hm_service_div.active p {
+        color      : #A8387B !important;
+        font-size  : 12px;
+        transition : font-size 0.2s linear;
+    }
+    .subproductcustom.active {
+        color     : #A8387B !important;
+        font-size : 10px;
+    }
+    .hm_service_list ul li {
+        float      : left;
+        width      : 30% !important;
+        padding    : 3px !important;
+        list-style : none;
+        margin     : 3px 6px;
+        border     : 1px solid #CACACA;
+        background : white;
+        text-align : -webkit-center;
+    }
+    .hm_search_icon {
+        display    : block !important;
+        width      : 20%;
+        margin-top : 4px !important;
+        font-size  : 14px;
+    }
+    .hm_service_list {
+        width      : 100%;
+        position   : absolute;
+        top        : 0px;
+        text-align : left;
+        margin-top : 0px !important;
+    }
+    .searchbar-md {
+    background: inherit;
+    padding: 0px;
+}
+    .hm_search_input {
+        width               : 100%;
+        border              : none;
+        height              : 32px;
+        border-radius       : 6px;
+        font-size           : 15px;
+        font-weight         : 300;
+        background-color    : #FFF !important;
+        padding-left        : 20px;
+        background-position : right 7px top 6px !important;
+        background-size     : 20px !important;
+    }
+    
+    input.placeholder {
+        text-align : center;
+    }
+    .gttsbtn {
+        width      : 100%;
+        text-align : left;
+        margin     : 10px 0 20px;
+        color      : #A8387B;
+    }
+    .gttsbtn .button-inner {
+        justify-content : flex-start;
+        padding         : 0 15px;
+    }
+    
+    .spf .hm_service_div {
+        padding : 5px 0;
+        height  : auto !important;
+    }
+    
+    .spf .hm_service_div.active {
+        box-shadow : 0 0 1px rgba(0, 0, 0, 0.3);
+    }
+    .col {
+    padding: 5px !important;
+}
+    .spf .spf30 {
+        flex      : 33% 0 0;
+        max-width : none;
+    }
+    
+    .btmnospbx ul li {
+        width  : 31.333%;
+        margin : 15px 1%;
+    }
+
+    .list-md {
+    margin: -1px 0 -12px; 
+}
+  
+.homeSearch
+    {
+        width: 100%;
+        margin: 0 auto;
+        background: #fff;
+        padding: 0;
+        height: auto;
+        overflow-y:scroll;
+        border-radius: 2px;
+        margin-top: 5px;
+    }
+    ul.homeSearch li {
+        padding: 10px 20px;
+        border-bottom: 1px solid #ccc;
+    }
+    ion-auto-complete ion-searchbar
+    {
+        padding: 5px !important;
+    }
+    ion-auto-complete
+    {
+        width:100%;
+    }
+    .hm_service_list ul li.searchLi {
+        display: block !important;
+        width: 100% !important;
+        padding: 5px !important;
+        margin: 3px 0 !important;
+        border-bottom: 1px solid #ccc !important;
+        border: 0;
+    }
+}

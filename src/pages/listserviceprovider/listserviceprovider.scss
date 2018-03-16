@@ -1,0 +1,46 @@
+page-listserviceprovider {
+    .searchIcon{
+		height: 120px;
+	    margin: 0 auto;
+	    display: block;
+	}
+	.noBorder
+	{
+		border-bottom:0 !important;
+	}
+	.colHeight
+	{
+		height: 20px;
+	}
+	.Searchtitle
+	{
+		color: #53676E;
+		padding: 20px 0;
+	}
+	.SearchText
+	{
+		text-transform: none !important;
+		font-size: 18px;
+	}
+	.searchTime
+	{
+		color: #53676E;
+	}
+	.newBooking
+	{
+		height:60px;
+		background: #BD2C6D;
+	}
+	.newBooking span
+	{
+		font-size: 20px;
+		font-weight: 600;
+	}
+	.cancelOrder
+	{
+		color:#ff0000;
+	}
+	.col{
+		padding:  0 !important;
+	}
+}

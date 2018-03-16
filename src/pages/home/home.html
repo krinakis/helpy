@@ -1,0 +1,87 @@
+<ion-header class = "hm_bg_color hm_header">
+  <div class = "hm_header_location_bay">
+    <div class = "helpytop"><img src = "assets/img/helpywhite.png"></div>
+    <!-- <span><img src="assets/img/hm_dwn_arw.png"></span> -->
+  </div>
+  <button ion-button class = "hm_header_btn hm_float_right hm_search_icon" (click) = "location()"></button>
+  <div class = "hm_clear"></div>
+</ion-header>
+<ion-content class = "hm_sign_bg">
+  <div class = "hm_wrapper">
+    <!--<div class="hm_search_bay">
+     <input class="hm_search_input" placeholder="Search for a service">
+    </div>-->
+    <div class = "hm_menu_bay" style = " margin-top: -2px;">
+      <ul>
+        <!-- <li class="hm_border_top_none hm_border_left_none" (click)="service(0)"><img src="assets/img/clean.png">
+          <p>HELPY <br> CLEAN</p>
+        </li>
+        <li class="hm_border_top_none hm_border_left_none" (click)="service(1)"><img src="assets/img/auto.png">
+          <p>HELPY<br> AUTO</p>
+        </li>
+        <li class="hm_border_top_none hm_border_left_none" (click)="service(2)"><img src="assets/img/runner.png">
+          <p>HELPY<br> RUNNER</p>
+        </li>
+        <li class="hm_border_top_none hm_border_left_none hm_border_right_none" (click)="service(3)"><img src="assets/img/beautycare.png">
+          <p>HELPY <br> BEAUTY</p>
+        </li>
+        <li class="hm_border_bottom_none hm_border_left_none" (click)="service(4)"><img src="assets/img/massage.png">
+          <p>HELPY<br> MASSAGE</p>
+        </li>
+         <li class="hm_border_bottom_none hm_border_left_none" (click)="service(5)"><img src="assets/img/shop.png">
+          <p>HELPY <br>SHOP</p>
+        </li> -->
+        <li class = "hm_border_top_none hm_border_left_none" style = "height:94px !important;" (click) = "service(i)" *ngFor = 'let root of rootCategories; let i = index;'>
+          <img src = "{{root.category_image}}">
+          <br>
+          <span style = "color:white">   {{root.category_name}}</span>
+        </li>
+        <!--<li class="hm_border_bottom_none hm_border_left_none" (click)="service(6)"><img src="assets/img/hm_item7.png"><p>Hobbies</p></li>
+        <li class="hm_border_bottom_none hm_border_left_none hm_border_right_none" (click)="service(7)"><img src="assets/img/hm_item8.png"><p>Repairs</p></li> -->
+        <div class = "hm_clear"></div>
+      </ul>
+    </div>
+    <div class = "hm_ad_wrap">
+      <ion-slides pager = "true" #mySlider>
+        <!-- <ion-slide (click)="recommended()"> -->
+        <ion-slide *ngFor="let obj of banner">
+          <img [src] ='obj.banner_image' >
+        </ion-slide>
+        <!-- <ion-slide (click)="recommended()"> -->
+        <!-- <ion-slide>
+          <img src = "assets/img/hm_shop_banner1.png">
+        </ion-slide> -->
+        <!-- <ion-slide>
+            <img src="assets/img/hm_shop_banner2.jpeg">
+          </ion-slide> -->
+      </ion-slides>
+    </div>
+    <div class = "hm_catagory_scroll_div">
+      <h5 style = "color: #626465; margin-top: 20px; margin-bottom: 10px; padding-left: 20px; font-size: 17px;">Helpy Latest Deals</h5>
+      <ion-grid style = "padding-left: 16px; padding-right: 16px; text-align: center;">
+        <ion-row> <!--*===== FIRST ROW =====-->
+          <ion-col col-4 style = "border: 1px solid #bdbdbd;padding: 2px !important;">
+            <div class = "hm_catagory_item" (click)="gonew()">
+              <img src = "assets/img/s3.png" style = "width: 45%;">
+              <p style = "padding:0px;color: #848484;" >New This Week</p>
+            </div>
+          </ion-col>
+          <ion-col col-4 style = "border: 1px solid #bdbdbd;padding: 2px !important;">
+            <div class = "hm_catagory_item">
+              <img src = "assets/img/s2.png" style = "width: 45%;">
+              <p style = "padding:0px;    color: #848484;">Promotions</p>
+            </div>
+          </ion-col>
+          <ion-col col-4 style = "border: 1px solid #bdbdbd;padding: 2px !important;">
+            <div class = "hm_catagory_item">
+              <img src = "assets/img/s1.png" style = "width: 48%;">
+              <p style = "padding:0px; color: #848484;">Near Me</p>
+            </div>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
+  </div>
+</ion-content>
+<ion-footer>
+</ion-footer>

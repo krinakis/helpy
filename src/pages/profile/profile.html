@@ -1,0 +1,74 @@
+<ion-header class = "hm_bg_color hm_header">
+  <div class = "hm_search_header fw np">
+    <div class = "helpytop2">
+      <span style = "color: #D0D0D0; font-size: 19px; font-weight: 400;">Profile</span>
+    </div>
+  </div>
+</ion-header>>
+<ion-content padding class = "hm_sign_bg">
+  <div class = "hm_myprofile_wrapper">
+    <button class = "hm_bottom_save" style = "float:right;" (click) = "settingsPage()">Settings
+      <span>
+					  <img src = "assets/img/settings.png">
+					</span>
+    </button>
+    <!-- <div class="hm_myprofile_photo">
+      <img src="assets/img/hm_profile_photo.png">
+      <div class="hm_edit_circle">
+        <img src="assets/img/hm_edit_circle.png">
+      </div>
+    </div> -->
+    <div class = "hm_myprofile_photo" *ngIf = 'data.userimage== ""'>
+      <img src = "assets/img/hm_profile_photo.png">
+    </div>
+    
+<div class = "hm_myprofile_photo" *ngIf = 'data.userimage != ""'>
+  <img src = {{data.userimage}} onError = "this.src='assets/img/girlImg.jpeg'">
+</div>
+
+    <div class = "hm_myprofile_detail">
+      <div class = "hm_myprofile_left">
+        <h4>{{name}}</h4>
+        <p>{{email}}</p>
+        <h6>+{{mobile}}</h6>
+      </div>
+      <div class = "hm_myprofile_right">
+        <div class = "hm_edit_circle1" (click) = "editprofile()">
+          <img src = "assets/img/hm_edit_circle1.png">
+        </div>
+      </div>
+      <div class = "hm_clear"></div>
+      <br>
+      <hr>
+      <div class = "hm_clear"></div>
+    </div>
+    <!-- <h5>Fitness at home</h5> -->
+    <!-- <div class = "hm_response">
+      <div class = "hm_response_left" style = "color:#162D38">Helpy Pay</div>
+      <div class = "hm_response_right">
+        <div class = "hm_show_all hm_show_all_deactive">RM 0</div>
+      </div>
+      <div class = "hm_clear"></div>
+    </div> -->
+    <div class = "hm_response">
+      <div class = "hm_response_left" style = "color:#162D38">Helpy Points</div>
+      <div class = "hm_response_right">
+        <div class = "hm_show_all hm_show_all_deactive">0 Pt</div>
+      </div>
+      <div class = "hm_clear"></div>
+    </div>
+    <div class = "hm_myprofile_list">
+      <ul>
+        <li (click) = "helpCenter()"><span><img src = "assets/img/hm_help.png"></span>Help Center</li>
+        <li (click) = "about()"><span><img src = "assets/img/hm_about.png"></span>About Helpy</li>
+        <li (click) = "share()"><span><img src = "assets/img/hm_share.png"></span>Share Helpy</li>
+        <li (click) = logout()><span><img src = "assets/img/hm_logout.png"></span>Logout</li>
+      </ul>
+    </div>
+  </div>
+  <br>
+  <br>
+  <br>
+</ion-content>
+<ion-footer>
+</ion-footer>

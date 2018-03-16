@@ -1,0 +1,44 @@
+<!--
+  Generated template for the TrackorderPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+
+<ion-header class = "hm_bg_color hm_header">
+  <!-- <ion-navbar>
+    <ion-title>serviceproviderinfo</ion-title>
+  </ion-navbar> -->
+   <div class = "hm_search_header">
+    <ion-icon class = "backicon button icon-left ion-chevron-left button-clear button-dark backicon" name = "arrow-dropleft-circle"
+            (click) = "goBack()" style = "font-family: Ionicons;font-size: 26px;
+    padding: 4px 0px 4px 10px;
+    color: #D0D0D0;"></ion-icon>
+    <div class = "helpytop2" style = "width: 80%">
+      <span style = "color: #D0D0D0;font-size: 14px;font-weight: 400;float: left;margin-top: 6px;">Track order</span>
+      <img src = "assets/img/helpywhite.png" style = "width: 30%; float: right;">
+    </div>
+  </div>
+</ion-header>
+
+<ion-content padding>
+  <div style = "width: 98%;
+  height: 85%;
+  margin: 0px auto;
+  border-radius: 4px;
+  position: relative;
+  overflow: hidden;" #map id = "map" ></div>
+    <!-- <ul *ngIf='showSend' style="width: 100%;padding: 10px;">
+     <li *ngFor='let value of subMenuRunner; trackBy: index;' (click)="showMoreRunner($event,value)">
+       <div class="hm_service_div">
+         <img src="{{value.category_image}}">
+         <p>{{value.category_name}}</p>
+       </div>
+     </li>
+   </ul>-->
+   <div >
+      <!-- Distance between start to end is  {{km | number : '1.2-2'}} km -->
+      <p *ngIf="!show">Not started</p>
+    </div>
+
+</ion-content>

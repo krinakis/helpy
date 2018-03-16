@@ -1,0 +1,46 @@
+<ion-content class = "hm_sign_bg">
+  <div class = "hm_wrapper">
+    <div class = "hm_signin_inner_wrapper">
+      <div class = "hm_logo">
+        <img src = "assets/img/hm_logo1.png">
+        <h5>Welcome to</h5>
+        <h6>Helpy</h6>
+        <span><img src = "assets/img/hm_vector_underline.png"></span>
+      </div>
+      <br>
+      <br>
+      <div class = "hm_sign_detail">
+        <div class = "hm_mobile_number_div">
+          <select class = "hm_mobile_code" [(ngModel)] = "countryCode">
+            <option value = "60">+60</option>
+            <option value = "96">+96</option>
+            <option value = "91">+91</option>
+          </select>
+          <input class = "hm_sign_number_input" placeholder = "Mobile Number" [(ngModel)] = "tempMobile">
+          <div class = "hm_clear"></div>
+        </div>
+        <div text-center>
+          <b>OR</b>
+        </div>
+        <br>
+        <div class = "hm_mobile_number_div">
+          <input class = "hm_sign_number_input" placeholder = "Email" [(ngModel)] = "data.email">
+          <div class = "hm_clear"></div>
+        </div>
+        <button class = "hm_sign_btn" (click) = "signup()">Login or Signup</button>
+      </div>
+    </div>
+  </div>
+</ion-content>
+<ion-footer>
+  <ion-toolbar>
+    <div text-center style = "margin-left:20px; margin-right:20px;">
+      <button ion-button text-capitalize block color = "fbColor" style = "color: #FFF">
+        <img src = "assets/img/fblogo.png">&nbsp;&nbsp;Facebook
+      </button>
+      <button ion-button text-capitalize block color = "gColor" style = "color:#FFF"><img src = "assets/img/glogo.png">&nbsp;&nbsp;Google
+      </button>
+    </div>
+  </ion-toolbar>
+</ion-footer>
+

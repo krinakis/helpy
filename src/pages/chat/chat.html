@@ -1,0 +1,56 @@
+<ion-header class = "hm_bg_color hm_header">
+  <!--<div class="hm_search_header" (click)="viewprofile()">
+		Sofia
+  </div>-->
+  <div class = "hm_search_header">
+    <ion-icon class = "backicon button icon-left ion-chevron-left button-clear button-dark backicon" name = "arrow-dropleft-circle" (click) = "goBack()" style = "font-family: Ionicons;font-size: 26px;
+    padding: 4px 0px 4px 10px;
+    color: #D0D0D0;"></ion-icon>
+    <div class = "helpytop2">
+      <span style = "color: #D0D0D0; font-size: 19px; font-weight: 400;">{{toUser}}</span>
+    </div>
+  </div>
+  <div class = "hm_clear"></div>
+</ion-header>
+<ion-content padding class = "hm_sign_bg">
+  <div class = "hm_chat_wrap">
+    <ul>
+      <div *ngFor = "let chat of chats.data">
+        <li class = "hm_received" *ngIf = "chat.toUser == userId">
+          <div class = "hm_message_photo">
+            <img [src] = "'http://www.huallow.com/helpy/' + chats.other[0].userimage" onError = "this.src='assets/img/girlImg.jpeg'">
+          </div>
+          <div class = "hm_message_content">
+            <h6>{{chats.other[0].username}}</h6>
+            <p>{{chat.message}}</p>
+            <p *ngIf="chat.message !=''">{{chat.message}}</p>
+            <img [src] = "'http://www.huallow.com/helpy/' + chat.image" class="imgset" *ngIf="chat.message ==''">
+            <span>{{chat.createdAt  | date : "hh:mm a MMM d, y"}}</span>
+          </div>
+          <div class = "hm_clear"></div>
+        </li>
+        <li class = "hm_sented" *ngIf = "chat.fromUser == userId">
+          <div class = "hm_message_photo">
+            <img [src] = "image" onError = "this.src='assets/img/hm_profile_photo.png'">
+          </div>
+          <div class = "hm_message_content">
+            <h6>You</h6>
+            <p *ngIf="chat.message !=''">{{chat.message}}</p>
+            <img [src] = "'http://www.huallow.com/helpy/' + chat.image" class="imgset" *ngIf="chat.message ==''">
+            <span>{{chat.createdAt  | date : "hh:mm a MMM d, y"}}</span>
+          </div>
+          <div class = "hm_clear"></div>
+        </li>
+      </div>
+    </ul>
+  </div>
+</ion-content>
+<ion-footer>
+  <div class = "hm_chat_type_wrapper"  >
+    <button class = "hm_attach"><img src = "assets/img/hm_attach.png" (click) = accessGallery() readonly="chats.order_status"></button>
+    <button class = "hm_camera"><img src = "assets/img/hm_camera.png" (click) = "takePicture()" readonly="chats.order_status"></button>
+    <button class = "hm_send_btn"><img src = "assets/img/hm_send.png" (click) = sendChat()></button>
+    <input class = "hm_type_text" type = "text" placeholder = "Type your message here" [(ngModel)] = "chatText" [maxLength] = "800" [disabled]="chats.order_status">
+    <div class = "hm_clear"></div>
+  </div>
+</ion-footer>

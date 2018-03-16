@@ -1,0 +1,20 @@
+// http://ionicframework.com/docs/v2/theming/
+@import "../assets/css/custom.scss";
+@import "../assets/css/font-awesome.scss";
+
+.alert-md .alert-wrapper{
+    background-color: #f5ccde!important;
+}
+.alert-md [aria-checked=true] .alert-radio-icon {
+    border-color:#EB5093 !important;
+}
+.alert-md .alert-radio-inner{
+    background-color:#EB5093 !important;
+}
+.alert-md [aria-checked=true] .alert-radio-label{
+    color:#EB5093 !important;
+}
+.alert-md .alert-button
+{
+    color:#EB5093 !important;
+}

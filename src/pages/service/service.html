@@ -1,0 +1,683 @@
+<ion-header class = "hm_bg_color hm_header">
+  <!--<button ion-button class="hm_header_btn hm_float_left hm_back_icon" (click)="goBack()"></button>
+   
+  <button ion-button class="hm_header_btn hm_float_right hm_search_icon" (click)=goToHistory()><img src="assets/img/history.png" style="    width: 50%;"></button>-->
+  <div class = "hm_search_header">
+    <ion-icon class = "backicon button icon-left ion-chevron-left button-clear button-dark backicon" name = "arrow-dropleft-circle" (click) = "goBack()" style = "font-family: Ionicons;font-size: 26px;
+    padding: 4px 0px 4px 10px;
+    color: #D0D0D0;"></ion-icon>
+    <div class = "helpytop1">
+      <img src = "assets/img/helpywhite.png">
+      <span style = "float: right; color: #D0D0D0; font-size: 19px; font-weight: 400;"></span>
+    </div>
+  </div>
+  <button ion-button class = "hm_header_btn hm_float_right hm_search_icon" (click) = goToHistory()>
+    <img src = "assets/img/history.png" style = "    width: 50%;">
+  </button>
+  <div class = "hm_clear"></div>
+</ion-header>
+<ion-content class = "hm_sign_bg">
+  <div class = "hm_services">
+    <!-- <div class="hm_service_menu_bar">
+      <ion-scroll scrollX="true" style="height:45px;">
+        <ul>
+          <li [ngClass]="{'active' : slidertab == 0}" (click)="goToSlide(0)">
+            <a class="beauty">
+              <span class="active" [hidden]="slidertab != 0">.</span>CLEAN</a>
+          </li>
+          <li [ngClass]="{'active' : slidertab == 1}" (click)="goToSlide(1)">
+            <a class="health">
+              <span class="active" [hidden]="slidertab != 1">.</span>MASSAGE</a>
+          </li>
+          <li [ngClass]="{'active' : slidertab == 2}" (click)="goToSlide(2)">
+            <a class="lesson">
+              <span class="active" [hidden]="slidertab != 2">.</span>AUTO</a>
+          </li>
+          <li [ngClass]="{'active' : slidertab == 3}" (click)="goToSlide(3)">
+            <a class="homeservice">
+              <span class="active" [hidden]="slidertab != 3">.</span>RUNNER</a>
+          </li>
+          <li [ngClass]="{'active' : slidertab == 4}" (click)="goToSlide(4)">
+            <a class="business">
+              <span class="active" [hidden]="slidertab != 4">.</span>BEAUTY</a>
+          </li>
+          <li [ngClass]="{'active' : slidertab == 5}" (click)="goToSlide(5)">
+            <a class="event">
+              <span class="active" [hidden]="slidertab != 5">.</span>SHOP</a>
+          </li>
+          <li [ngClass]="{'active' : slidertab == 6}" (click)="goToSlide(6)">
+            <a class="hobbie">
+              <span class="active" [hidden]="slidertab != 6">.</span>CARE</a>
+          </li>
+         
+          <div class="hm_clear"></div>
+        </ul>
+
+
+      </ion-scroll>
+    </div> -->
+    <div class = "hm_service_content">
+      <ion-slides pager = "false" #mySlider class = "hm_service_slide" (ionSlideDidChange) = "slideChanged()">
+        <ion-slide class = "beauty">
+          <div class = "hm_service_list" style = "height:100%;width:100%;overflow:auto;" text-center>
+            <!-- <ul>
+              <li *ngFor='let value of SubMenuClean; trackBy: index;' class="hm_border_top_none hm_border_left_none" style="margin-left: 5px;">
+                <div class="hm_service_div" (click)="showMore(value)">
+                  <img src="{{value.category_image}}">
+                </div>
+                <p>{{value.category_name}}</p>
+              </li>
+              <div class="hm_clear"></div>
+            </ul> -->
+            <ion-row>
+              <ion-col *ngFor = 'let value of SubMenuClean; trackBy: index;' style = "border:1px solid gray;" class = "hm_border_top_none hm_border_left_none" style = "margin-left: 5px;">
+                <div class = "hm_service_div" (click) = "showMore(value)">
+                  <img src = "{{value.category_image}}">
+                </div>
+                <p>{{value.category_name}}</p>
+              </ion-col>
+            </ion-row>
+            <!-- <div *ngIf="showHideClean">
+              <div style="width: 100%;height: 120px;">
+                <ul>
+                  <li *ngFor='let subChild of subChildClean; trackBy: index;' style="height:100px;width:100px; padding:14px;">
+                    <div class="hm_service_div" (click)="showMoreChild(subChild)">
+                      <img src="{{subChild.category_image}}">
+                    </div>
+                    <p text-wrap> {{subChild.category_name}} </p>
+                  </li>
+                </ul>
+              </div>
+            </div> -->
+            <div *ngIf = "showHideClean" text-center>
+              <ion-row>
+                <ion-col *ngFor = 'let subChild of subChildClean; trackBy: index;' class = "hm_border_top_none hm_border_left_none" style = "margin-left: 5px;">
+                  <div class = "hm_service_div" (click) = "showMoreChild(subChild)">
+                    <img src = "{{subChild.category_image}}">
+                  </div>
+                  <p text-wrap> {{subChild.category_name}} </p>
+                </ion-col>
+              </ion-row>
+            </div>
+            <div style = "clear:both">
+            </div>
+            <div *ngIf = "showHideCleanChild">
+              <div style = "width: 80%;height: 120px; margin: 0px auto;" text-center>
+                <ul [hidden] = "dontShowPlusButtons" style = "width:315px;" text-center>
+                  <li *ngFor = 'let subSub of subSubChildClean; trackBy: index; let i =index '>
+                    <div class = "hm_service_div">
+                      <img src = "{{subSub.product_image}}">
+                    </div>
+                    <p> {{subSub.product_name}} </p>
+                    <button class = "hm_service_btn" (click) = "add(subSub)">+</button>
+                    {{subSub.qty}}
+                    <button class = "hm_service_btn" (click) = "sub(subSub)">-</button>
+                  </li>
+                </ul>
+                <!-- <ion-row [hidden]="dontShowPlusButtons">
+                  <ion-col *ngFor='let subSub of subSubChildClean; trackBy: index;'>
+                    <div class="hm_service_div">
+                      <img src="{{subSub.product_image}}">
+                    </div>
+                    <p> {{subSub.product_name}} </p>
+                    <button class="hm_service_btn" (click)="add(subSub)">+</button> {{subSub.qty}}
+                    <button class="hm_service_btn" (click)="sub(subSub)">-</button>
+                  </ion-col>
+                </ion-row> -->
+                <ul [hidden] = "!dontShowPlusButtons" style = "width:315px;">
+                  <li *ngFor = 'let subSub of inHouseService; let i= index; trackBy: index;' (click) = "addThisItem($event,subSub)">
+                    <div class = "hm_service_div">
+                      <img src = "{{subSub.product_image}}">
+                    </div>
+                    <p> {{subSub.product_name}} </p>
+                  </li>
+                </ul>
+              </div>
+              <ion-list>
+                <ion-item text-wrap>
+                  <span>
+                    <img src = "assets/img/cart.png" style = "height:30px;width:30px;"> With Tool Total Price
+                    <b>RM {{price}}.00 </b>
+                  </span>
+                </ion-item>
+                <button ion-button full style = "background-color:#EA5192" (click) = "orderInfo()">
+                  Next
+                </button>
+              </ion-list>
+            </div>
+            <!-- </ion-card> -->
+          </div>
+        </ion-slide>
+        <ion-slide class = "health">
+          <div class = "hm_service_list" style = "height:100%;width:100%;overflow:auto;">
+            <ion-card text-center>
+              <ion-item style = "margin-top:0px;">
+                <ion-label>Select Location</ion-label>
+                <ion-select [(ngModel)] = "location">
+                  <ion-option value = "a">Kuala Kualumpur</ion-option>
+                  <ion-option value = "b">Petaling Jaya</ion-option>
+                  <ion-option value = "c">Cheras</ion-option>
+                  <ion-option value = "d">Shah Alam</ion-option>
+                  <ion-option value = "e">Subang Jaya</ion-option>
+                  <ion-option value = "f">Damansara</ion-option>
+                  <ion-option value = "g">Klang</ion-option>
+                  <ion-option value = "m">Kelana Jaya</ion-option>
+                </ion-select>
+              </ion-item>
+            </ion-card>
+            <ul>
+              <li *ngFor = 'let value of SubMenuMassage; trackBy: index;' class = "hm_border_top_none hm_border_left_none">
+                <div class = "hm_service_div" (click) = "showMoreMassage(value)">
+                  <img src = "{{value.category_image}}">
+                  <p>{{value.category_name}}</p>
+                </div>
+              </li>
+              <div class = "hm_clear"></div>
+            </ul>
+            <!-- <ion-card padding> -->
+            <div *ngIf = "showHideMassage">
+              <!-- <B>IN HOUSE SECTION (30 Minute) </B> -->
+              <div style = "width: 100%;height: 120px;margin-top: 26px;">
+                <ul>
+                  <li *ngFor = 'let subChild of subChildMassage; trackBy: index;'>
+                    <div class = "hm_service_div" (click) = "showMoreChildMassage(subChild)">
+                      <img src = "{{subChild.category_image}}">
+                      <div style = "clear:both"></div>
+                      <p class = "SubCategoryP"> {{subChild.category_name}} </p>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div style = "clear:both">
+            </div>
+            <div *ngIf = "showHideMassageChild">
+              <!-- <B>IN HOUSE SECTION (30 Minute) </B> -->
+              <div style = "width: 100%;height: 120px;margin-top: 26px;">
+                <ul>
+                  <li *ngFor = 'let subSubChild of subSubChildMassage; trackBy: index;'>
+                    <div class = "hm_service_div">
+                      <img src = "{{subSubChild.product_image}}">
+                      <div style = "clear:both"></div>
+                      <div style = "width:104%">
+                        <p class = "SubCategoryP"> {{subSubChild.product_name}} </p>
+                        <button class = "hm_service_btn bleft" (click) = "add(subSubChild)">
+                          <span class = "cPlus"> + </span>
+                        </button>
+                        <span style = "margin-left: 1px;">{{subSubChild.qty}}</span>
+                        <button class = "hm_service_btn bright" (click) = "sub(subSubChild)">
+                          <span class = "cMinus">-</span>
+                        </button>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+              <ion-list>
+                <ion-item text-wrap>
+                  <span>
+                    <img src = "assets/img/cart.png" style = "height:30px;width:30px;"> With Tool Total Price
+                    <b>RM {{price}}.00 </b>
+                  </span>
+                </ion-item>
+                <button ion-button full style = "background-color:#EA5192" (click) = "orderInfoM()">
+                  Next
+                </button>
+              </ion-list>
+            </div>
+            <br>
+            <br>
+            <br>
+          </div>
+        </ion-slide>
+        <ion-slide class = "lesson">
+          <div class = "hm_service_list" style = "height:100%;width:100%;overflow:auto;">
+            <!-- <ion-card text-center>
+                  <ion-item style="margin-top:0px;">
+                    <ion-label>Select Location</ion-label>
+                    <ion-select [(ngModel)]="location">
+                      <ion-option value="a">Kuala Kualumpur</ion-option>
+                      <ion-option value="b">Petaling Jaya</ion-option>
+                      <ion-option value="c">Cheras</ion-option>
+                      <ion-option value="d">Shah Alam</ion-option>
+                      <ion-option value="e">Subang Jaya</ion-option>
+                      <ion-option value="f">Damansara</ion-option>
+                      <ion-option value="g">Klang</ion-option>
+                      <ion-option value="m">Kelana Jaya</ion-option>
+                    </ion-select>
+                  </ion-item>
+                </ion-card> -->
+            <ul>
+              <li *ngFor = 'let value of SubMenuAuto; trackBy: index;' class = "hm_border_top_none hm_border_left_none">
+                <div class = "hm_service_div" (click) = "showMoreAuto(value)">
+                  <img src = "{{value.category_image}}">
+                </div>
+                <p>{{value.category_name}}</p>
+              </li>
+              <div class = "hm_clear"></div>
+            </ul>
+            <!-- <ion-card padding> -->
+            <div *ngIf = "showHideAuto">
+              <!-- <B>IN HOUSE SECTION (30 Minute) </B> -->
+              <div style = "width: 100%;height: 120px;">
+                <ul>
+                  <li *ngFor = 'let subChild of subChildAuto; trackBy: index;' style = "height:100px;width:100px; padding:14px;">
+                    <div class = "hm_service_div" (click) = "showMoreChildAuto(subChild)">
+                      <img src = "{{subChild.category_image}}">
+                    </div>
+                    <p> {{subChild.category_name}} </p>
+                  </li>
+                </ul>
+              </div>
+              <div style = "clear:both">
+              </div>
+              <div *ngIf = "showHideAutoChild">
+                <div style = "width: 100%;height: 120px;">
+                  <ul>
+                    <li *ngFor = 'let subSub of subSubChildAuto; trackBy: index;'>
+                      <div class = "hm_service_div">
+                        <img src = "{{subSub.product_image}}">
+                        <div style = "clear:both"></div>
+                        <div style = "width:104%">
+                          <p class = "SubCategoryP"> {{subSub.product_name}} </p>
+                          <button class = "hm_service_btn bleft" (click) = "add(subSub)">
+                            <span class = "cPlus"> + </span>
+                          </button>
+                          <span style = "margin-left: 1px;">{{subSub.qty}}</span>
+                          <button class = "hm_service_btn bright" (click) = "sub(subSub)">
+                            <span class = "cMinus">-</span>
+                          </button>
+                        </div>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+                <ion-list>
+                  <ion-item text-wrap>
+                    <span>
+                      <img src = "assets/img/cart.png" style = "height:30px;width:30px;"> With Tool Total Price
+                      <b>RM {{price}}.00 </b>
+                    </span>
+                  </ion-item>
+                  <button ion-button full style = "background-color:#EA5192" (click) = "summary()">
+                    Next
+                  </button>
+                </ion-list>
+              </div>
+            </div>
+            <div style = "clear:both">
+            </div>
+            <br>
+            <br>
+            <br>
+          </div>
+        </ion-slide>
+        <!-- Runneer -->
+        <ion-slide class = "homeservice">
+          <div class = "hm_service_list" style = "height:100%;width:100%;overflow:auto;">
+            <ul *ngIf = 'showSend'>
+              <li *ngFor = 'let value of subMenuRunner; trackBy: index;' class = "hm_border_top_none hm_border_left_none">
+                <div class = "hm_service_div" (click) = "showMoreRunner(value)">
+                  <img src = "{{value.category_image}}">
+                </div>
+                <p>{{value.category_name}}</p>
+              </li>
+              <div class = "hm_clear"></div>
+              <div style = "width: 100%;height: 120px;" *ngIf = "showHideRunnerChild">
+                <ul>
+                  <li *ngFor = 'let subSub of subSubChildRunner; trackBy: index;'>
+                    <div class = "hm_service_div">
+                      <img src = "{{subSub.product_image}}">
+                    </div>
+                    <p> {{subSub.product_name}} </p>
+                    <button class = "hm_service_btn" (click) = "add(subSub)">+</button>
+                    {{subSub.qty}}
+                    <button class = "hm_service_btn" (click) = "sub(subSub)">-</button>
+                  </li>
+                </ul>
+              </div>
+            </ul>
+            <div class = "hm_send_inner_wrapper" [hidden] = "showSend">
+              <div class = "hm_sign_detail">
+                <ion-label style = "font-size:14px;">ITEM DESCRIPTION</ion-label>
+                <input class = "hm_signup_input" placeholder = "Description of goods">
+                <ion-label>SENDER</ion-label>
+                <input class = "hm_signup_input" placeholder = "Sender's Name">
+                <input class = "hm_signup_input" placeholder = "Sender's Phone Number">
+                <ion-label>RECEIVER</ion-label>
+                <input class = "hm_signup_input" placeholder = "Receiver's Name">
+                <input class = "hm_signup_input" placeholder = "Receiver's Phone Number">
+                <div class = "hm_clear"></div>
+                <ion-row>
+                  <ion-col>
+                    <button class = "hm_sign_btn" (click) = "updateSend()">Change Location</button>
+                  </ion-col>
+                  <ion-col>
+                    <button class = "hm_sign_btn" (click) = "summary()">ORDER</button>
+                  </ion-col>
+                </ion-row>
+              </div>
+              <br>
+              <br>
+              <br>
+              <br>
+            </div>
+            <!-- class="hm_send_inner_wrapper" *ngIf="showSend" -->
+            <div class = "hm_send_inner_wrapper" style = "height:100%;width:100%;overflow:auto;" [hidden] = "!showSend">
+              <input class = "hm_send_input" placeholder = "From" value = "Petaling Jaya, Selangor, Malaysia">
+              <input class = "hm_send_input" placeholder = "To" value = "Mid Valley City, 58000 Kuala Lumpur, Federal Territory of Kuala Lumpur, Malaysia">
+              <ion-buttons end>
+                <button ion-button (click) = "addMarker()">Your Location</button>
+              </ion-buttons>
+              <div style = "width:100%; height:50%" #map = "" id = "map"></div>
+              <button ion-button full style = "background-color:#EA5192" (click) = "placeOrder()">
+                Next
+              </button>
+              <br>
+              <br>
+              <br>
+              <br>
+              <br>
+            </div>
+          </div>
+        </ion-slide>
+        <ion-slide class = "business">
+          <div class = "hm_service_list" style = "height:100%;width:100%;overflow:auto;">
+            <ion-card text-center>
+              <ion-item style = "margin-top:0px;">
+                <ion-label>Select Location</ion-label>
+                <ion-select [(ngModel)] = "location">
+                  <ion-option value = "a">Kuala Kualumpur</ion-option>
+                  <ion-option value = "b">Petaling Jaya</ion-option>
+                  <ion-option value = "c">Cheras</ion-option>
+                  <ion-option value = "d">Shah Alam</ion-option>
+                  <ion-option value = "e">Subang Jaya</ion-option>
+                  <ion-option value = "f">Damansara</ion-option>
+                  <ion-option value = "g">Klang</ion-option>
+                  <ion-option value = "m">Kelana Jaya</ion-option>
+                </ion-select>
+              </ion-item>
+            </ion-card>
+            <ul>
+              <li *ngFor = 'let value of SubMenuBeauty; trackBy: index;' class = "hm_border_top_none hm_border_left_none" style = "padding:7px;">
+                <div class = "hm_service_div" (click) = "showMoreBeauty(value)">
+                  <img src = "{{value.category_image}}">
+                </div>
+                <p>{{value.category_name}}</p>
+              </li>
+              <div class = "hm_clear"></div>
+            </ul>
+            <!-- <ion-card padding> -->
+            <div *ngIf = "showHideBeauty">
+              <!-- <B>IN HOUSE SECTION (30 Minute) </B> -->
+              <div style = "width: 100%;height: 120px;">
+                <ul>
+                  <li *ngFor = 'let subChild of subChildBeauty; trackBy: index;' style = "height:100px;width:100px; padding:14px;">
+                    <div class = "hm_service_div" (click) = "showMoreChildBeauty(subChild)">
+                      <img src = "{{subChild.category_image}}">
+                    </div>
+                    <p> {{subChild.category_name}} </p>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div style = "clear:both">
+            </div>
+            <div *ngIf = "showHideBeautyChild">
+              <div style = "width: 100%;height: 120px;">
+                <ul>
+                  <li *ngFor = 'let subSub of subSubChildBeauty; trackBy: index;'>
+                    <div class = "hm_service_div">
+                      <img src = "{{subSub.product_image}}">
+                    </div>
+                    <p> {{subSub.product_name}} </p>
+                    <button class = "hm_service_btn" (click) = "add(subSub)">+</button>
+                    {{subSub.qty}}
+                    <button class = "hm_service_btn" (click) = "sub(subSub)">-</button>
+                  </li>
+                </ul>
+              </div>
+              <ion-list>
+                <ion-item text-wrap>
+                  <span>
+                    <img src = "assets/img/cart.png" style = "height:30px;width:30px;"> With Tool Total Price
+                    <b>RM {{price}}.00 </b>
+                  </span>
+                </ion-item>
+                <button ion-button full style = "background-color:#EA5192" (click) = "summary()">
+                  Next
+                </button>
+              </ion-list>
+            </div>
+            <!-- </ion-card> -->
+            <br>
+            <br>
+            <br>
+            <!-- <ion-card padding>
+            
+              <ion-list radio-group [(ngModel)]="test">
+
+                <ion-item>
+                  <ion-label>Your Gender :</ion-label>
+                </ion-item>
+                <ion-item>
+                  <ion-label>Male</ion-label>
+                  <ion-radio value="friends" checked></ion-radio>
+                </ion-item>
+                <ion-item>
+                  <ion-label>Female</ion-label>
+                  <ion-radio value="family"></ion-radio>
+                </ion-item>
+              </ion-list>
+
+              <ion-list radio-group [(ngModel)]="test2">
+
+                <ion-item>
+                  <ion-label>Duration</ion-label>
+                </ion-item>
+                <ion-item>
+                  <ion-label>60 Min (RM 80.0)</ion-label>
+                  <ion-radio value="friends" checked></ion-radio>
+                </ion-item>
+                <ion-item>
+                  <ion-label>90 Min (RM 115.0)</ion-label>
+                  <ion-radio value="family"></ion-radio>
+                </ion-item>
+                <ion-item>
+                  <ion-label>120 Min (RM 150.0)</ion-label>
+                  <ion-radio value="120"></ion-radio>
+                </ion-item>
+              </ion-list>
+
+              <ion-list radio-group [(ngModel)]="test3">
+
+                <ion-item>
+                  <ion-label>Therapist Preference</ion-label>
+                </ion-item>
+                <ion-item>
+                  <ion-label>Male</ion-label>
+                  <ion-radio value="friends" checked></ion-radio>
+                </ion-item>
+                <ion-item>
+                  <ion-label>Female</ion-label>
+                  <ion-radio value="female"></ion-radio>
+                </ion-item>
+                <ion-item>
+                  <ion-label>Any genders</ion-label>
+                  <ion-radio value="family"></ion-radio>
+                </ion-item>
+              </ion-list>
+           
+
+              <button ion-button full style="background-color:#EA5192" (click)="summary()">
+                Next
+              </button>
+            </ion-card> -->
+            <br>
+            <br>
+            <br>
+          </div>
+        </ion-slide>
+        <ion-slide class = "event">
+          <div class = "hm_service_list" style = "height:100%;width:100%;overflow:auto;">
+            <ul>
+              <li *ngFor = 'let value of SubMenuShop; trackBy: index;'>
+                <div class = "hm_service_div" (click) = "showMoreShop(value)">
+                  <img src = "{{value.category_image}}">
+                </div>
+                <p>{{value.category_name}}</p>
+              </li>
+              <div class = "hm_clear"></div>
+            </ul>
+            <!-- <ion-card padding> -->
+            <div *ngIf = "showHideShop">
+              <!-- <B>IN HOUSE SECTION (30 Minute) </B> -->
+              <div style = "width: 100%;height: 120px;">
+                <ul>
+                  <li *ngFor = 'let subChild of subChildShop; trackBy: index;' style = "height:100px;width:100px; padding:14px;">
+                    <div class = "hm_service_div" (click) = "showMoreChildShop(subChild)">
+                      <img src = "{{subChild.category_image}}">
+                    </div>
+                    <p> {{subChild.category_name}} </p>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div style = "clear:both">
+            </div>
+            <div *ngIf = "showHideShopChild">
+              <div style = "width: 100%;height: 120px;">
+                <ul>
+                  <li *ngFor = 'let subSub of subSubChildShop; trackBy: index;'>
+                    <div class = "hm_service_div">
+                      <img src = "{{subSub.product_image}}">
+                    </div>
+                    <p> {{subSub.product_name}} </p>
+                    <button class = "hm_service_btn" (click) = "add(subSub)">+</button>
+                    {{subSub.qty}}
+                    <button class = "hm_service_btn" (click) = "sub(subSub)">-</button>
+                  </li>
+                </ul>
+              </div>
+              <ion-list>
+                <ion-item text-wrap>
+                  <span>
+                    <img src = "assets/img/cart.png" style = "height:30px;width:30px;"> With Tool Total Price
+                    <b>RM {{price}}.00 </b>
+                  </span>
+                </ion-item>
+                <button ion-button full style = "background-color:#EA5192" (click) = "summary()">
+                  Next
+                </button>
+              </ion-list>
+            </div>
+            <!-- </ion-card> -->
+            <br>
+            <br>
+            <br>
+          </div>
+        </ion-slide>
+        <ion-slide class = "hobbie">
+          <div class = "hm_service_list" style = "height:100%;width:100%;overflow:auto;">
+            <!-- <ul>
+              <li>
+                <div class="hm_service_div">
+                  <img src="assets/img/hm_art.png">
+                </div>
+                <p>Art</p>
+              </li>
+              <li>
+                <div class="hm_service_div">
+                  <img src="assets/img/hm_music.png">
+                </div>
+                <p>Music</p>
+              </li>
+              <li>
+                <div class="hm_service_div">
+                  <img src="assets/img/hm_dance.png">
+                </div>
+                <p>Dance</p>
+              </li>
+              <li>
+                <div class="hm_service_div">
+                  <img src="assets/img/hm_sports.png">
+                </div>
+                <p>Sports</p>
+              </li>
+              <li>
+                <div class="hm_service_div">
+                  <img src="assets/img/hm_photo.png">
+                </div>
+                <p>Photography</p>
+              </li>
+              <li>
+                <div class="hm_service_div">
+                  <img src="assets/img/hm_gaming.png">
+                </div>
+                <p>Gaming</p>
+              </li>
+              <li>
+                <div class="hm_service_more"></div>
+                <p>Show more</p>
+              </li>
+              <div class="hm_clear"></div>
+            </ul> -->
+            <div text-center>
+              <h3> Coming soon... </h3>
+            </div>
+          </div>
+        </ion-slide>
+        <ion-slide class = "repair">
+          <div class = "hm_service_list" style = "height:100%;width:100%;overflow:auto;">
+            <!-- <ul>
+              <li>
+                <div class="hm_service_div">
+                  <img src="assets/img/hm_pc.png">
+                </div>
+                <p>PC /Laptop</p>
+              </li>
+              <li>
+                <div class="hm_service_div">
+                  <img src="assets/img/hm_car.png">
+                </div>
+                <p>Car</p>
+              </li>
+              <li>
+                <div class="hm_service_div">
+                  <img src="assets/img/hm_motorcycle.png">
+                </div>
+                <p>Motorcycle</p>
+              </li>
+              <li>
+                <div class="hm_service_div">
+                  <img src="assets/img/hm_appliance.png">
+                </div>
+                <p>Appliances</p>
+              </li>
+              <li>
+                <div class="hm_service_div">
+                  <img src="assets/img/hm_photo.png">
+                </div>
+                <p>Camera</p>
+              </li>
+              <li>
+                <div class="hm_service_div">
+                  <img src="assets/img/hm_gaming.png">
+                </div>
+                <p>Console</p>
+              </li>
+              <li>
+                <div class="hm_service_more"></div>
+                <p>Show more</p>
+              </li>
+              <div class="hm_clear"></div>
+            </ul> -->
+            <div text-center>
+              <h3> Coming soon... </h3>
+            </div>
+          </div>
+        </ion-slide>
+      </ion-slides>
+    </div>
+  </div>
+</ion-content>

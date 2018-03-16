@@ -1,0 +1,175 @@
+page-runner {
+    .hm_send_input {
+        width         : 94%;
+        height        : 29px;
+        margin-left   : 10px;
+        border        : 1px solid #EA5192;
+        margin-bottom : 10px;
+        padding-left  : 36px;
+        border-radius : 5px;
+        background    : transparent !important;
+    }
+    .hm_sign_btn {
+        background-color    : #162D38 !important;
+        width               : 100%;
+        height              : 35px;
+        color               : #E2E4E4;
+        text-align          : center !important;
+        padding-left        : 10px;
+        font-size           : 12px;
+        font-weight         : 300;
+        background          : url(../assets/img/hm_log_arw.png);
+        background-repeat   : no-repeat !important;
+        background-position : right 10px top 12px !important;
+        background-size     : 13px;
+        text-align          : center !important;
+        border-radius       : 0px !important;
+    }
+    .hm_send_inner_wrapper {
+    width: 90%;
+    margin-top: 0% !important;
+    margin: 0 auto;
+    font-size: 14px;
+    padding: 10px;
+    background: white;
+}
+.label-md {
+    margin: 1px 0px 5px 0px !important;
+    font-weight: bold;
+}
+    .hm_signup_input {
+        width         : 100%;
+        height        : 30px;
+        border        : 1px solid #d4d4d4;
+        font-size     : 12px;
+        margin-bottom : 10px;
+        padding-left  : 45px;
+        background    : transparent !important;
+    }
+    .content-md hr {
+    background-color: rgba(0, 0, 0, 0.14);
+}
+    .btnadd1{float: left;
+    width: 50% !important;
+    padding: 7px 5px !important;
+    border-radius: 5px;
+    list-style: none;
+    background: #EB5093;
+    border: 1px solid white;
+    text-align: -webkit-center;
+    height: 34px;
+    margin-bottom: 8px;}
+    .segment-md .segment-button {
+        color : #EA5192;
+    }
+    .segment-md .segment-button.activated, .segment-md .segment-button.segment-activated {
+        border-color  : #EA5192;
+        opacity       : 1;
+        border-radius : 5px;
+        color         : #FFFFFF;
+        background    : #EA5192;
+        
+    }
+    .toolbar-content-md {
+        -webkit-flex   : 1;
+        -ms-flex       : 1;
+        flex           : 1;
+        -webkit-order  : 3;
+        -ms-flex-order : 3;
+        order          : 3;
+        min-width      : 0;
+        max-width      : 100%;
+    }
+    
+    .segment-md .segment-button {
+        -webkit-flex     : 1;
+        -ms-flex         : 1;
+        flex             : 1;
+        padding          : 0 6px;
+        width            : 0;
+        height           : 3.2rem;
+        border           : 1px solid #EA5192;
+        font-size        : 1.2rem;
+        border-radius    : 4px;
+        font-weight      : 500;
+        line-height      : 3rem;
+        text-transform   : uppercase;
+        background-color : transparent;
+        opacity          : 1;
+        transition       : 100ms all linear;
+    }
+    
+    input::-webkit-input-placeholder {
+        color : #EA5192 !important;
+    }
+    
+    input:-moz-placeholder { /* Firefox 18- */
+        color : #EA5192 !important;
+    }
+    
+    input::-moz-placeholder { /* Firefox 19+ */
+        color : #EA5192 !important;
+    }
+    
+    input:-ms-input-placeholder {
+        color : #EA5192 !important;
+    }
+    
+    .hm_service_list ul li {
+        float         : left;
+        width         : 25% !important;
+        padding       : 7px 5px !important;
+        border-radius : 5px;
+        list-style    : none;
+        background    : #EB5093;
+        border        : 1px solid white;
+        text-align    : -webkit-center;
+        height        : 34px;
+        margin-bottom : 8px;
+    }
+    
+    .hm_service_div {
+        height     : 25px !important;
+        font-size  : 10px !important;
+        padding    : 0px;
+        margin-top : -6px;
+    }
+    .hm_service_div img {
+        width : 28px;
+        FLOAT : LEFT;
+    }
+    .hm_service_list ul li p {
+        color          : white !important;
+        text-align     : RIGHT;
+        margin-left    : 5px;
+        FLOAT          : left;
+        margin-top     : -4px;
+        font-size      : 14px;
+        padding-top    : 10px;
+        padding-bottom : 10px;
+    }
+    .custmsrcw ion-item {
+        padding-left : 0;
+    }
+    
+    .custmsrcw ion-searchbar {
+        padding : 0;
+    }
+
+    .hm_service_list {
+    width: 100%;
+    position: absolute;
+    top: 65px;
+    margin-top: -63px !important;
+}
+.list-md {
+    margin: -1px 0 -12px;
+}
+    
+
+.changebutton1{    width: 46%;float:left}
+
+.changebutton2{    width: 46%;float:right}
+
+.distancekm   {    margin-top: 15px;}
+}

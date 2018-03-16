@@ -1,0 +1,59 @@
+<!-- <div id="custom-overlay" [style.display]="splash ? 'flex': 'none'">
+  <div class="flb">
+    <div class="Aligner-item Aligner-item--top"></div>
+    <img src="assets/img/hm_logo1.png">
+    <div class="Aligner-item Aligner-item--bottom"></div>
+  </div>
+</div> -->
+<ion-content class = "hm_intro_bg">
+  <ion-slides class = "hm_slider" pager = "true" #mySlider (ionSlideDidChange) = "slideChanged()">
+    <ion-slide>
+
+
+      <div class = "hm_slide">
+
+
+
+
+        <div class = "hm_slide_banner">
+          <img src = "assets/img/hm_slide1.png">
+        </div>
+        <h4 style = "color:white!important">Do you have problems?</h4>
+        <p style = "color:white!important">need assisants?
+          <br>Now you got HELPY </p>
+      </div>
+    </ion-slide>
+    <ion-slide>
+      <div class = "hm_slide">
+        <div class = "hm_slide_banner">
+          <img src = "assets/img/hm_slide2.png">
+        </div>
+        <h4 style = "color:white!important">With just one tap, we get it done for you</h4>
+        <p style = "color:white!important">Helpy Provides multi-services
+          <br> suit to your needs </p>
+      </div>
+    </ion-slide>
+    <ion-slide>
+      <div class = "hm_slide">
+        <div class = "hm_slide_banner">
+          <img src = "assets/img/hm_slide3.png" style = "    width: auto;">
+        </div>
+        <h4 style = "color:white!important">Worry no more !!</h4>
+        <p style = "color:white!important">Now you got HELPY
+          <br>Just with one tap get it done. </p>
+      </div>
+    </ion-slide>
+  </ion-slides>
+  <div class = "hm_slide_btm_bay" [hidden] = "currentIndex == 2">
+    <p style = "color:white!important;    font-size: 15px;">Skip</p>
+    <button ion-button class = "hm_btm_btn" (click) = "goToNextSlide()">
+      <img src = "assets/img/hm_round_arw.png">
+    </button>
+  </div>
+  <div class = "hm_slide_btm_bay" [hidden] = "currentIndex != 2">
+    <p (click) = "signin()" style="color:white">Sign in</p>
+    <button ion-button class = "hm_btm_btn" (click) = "signin()">
+      <img src = "assets/img/hm_round_arw.png">
+    </button>
+  </div>
+</ion-content>

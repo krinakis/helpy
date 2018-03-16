@@ -1,0 +1,27 @@
+page-myproject {
+    
+    .item item-block item-md {
+        border-bottom : solid 1px;
+    }
+    .hm_project_tab_content {
+        padding     : 0px;
+        padding-top : 0px;
+    }
+    .list-md {
+        margin : 0px;
+    }
+    .hm_project_tab_content .note-md {
+        color     : #888;
+        font-size : 14px;
+    }
+}
+
+
+.ratingStyle2 ion-icon {
+    font-size: 15px !important;
+}
+
+.ratingStyle2 ul.rating li
+{
+        padding: 5px 0px !important;
+}

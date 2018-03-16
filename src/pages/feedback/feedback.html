@@ -1,0 +1,75 @@
+<!--
+  Generated template for the FeedbackPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Feedback</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+    <h3 text-center><strong>Excellent</strong></h3>
+  <ion-row class="borderrow ">
+      
+      <rating [(ngModel)]="rating"
+       class="ratingStyle"[(ngModel)]="rate" 
+        readOnly="false" 
+        max="5" 
+        emptyStarIconName="star-outline" 
+        halfStarIconName="star-half"  
+        starIconName="star"  
+        nullable="false"  
+        (ngModelChange)="onModelChange($event)">  
+</rating>
+</ion-row>
+
+    <h4 text-center>Give a Compliment</h4>
+
+     
+    <ion-row class="border">  
+      <ion-col col-3>
+        <div class = "hm_catagory_item">
+          <img class="imgStyle" src = "assets/img/diamond (1).png" >
+          <p style = "padding:0px;color: #848484;">Excellent service</p>
+        </div>
+      </ion-col>
+      <ion-col col-3>
+        <div class = "hm_catagory_item">
+          <img class="imgStyle" src = "assets/img/thum.png" >
+          <p style = "padding:0px;    color: #848484;">Great conversation</p>
+        </div>
+      </ion-col>
+      <ion-col col-3>
+        <div class = "hm_catagory_item">
+          <img class="imgStyle" src = "assets/img/location1.png">
+          <p style = "padding:0px; color: #848484;">Expert Navigation</p>
+        </div>
+      </ion-col>
+      <ion-col col-3>
+          <div class = "hm_catagory_item">
+            <img class="imgStyle" src = "assets/img/smile.png" >
+            <p style = "padding:0px; color: #848484;">Near Me</p>
+          </div>
+        </ion-col>
+    </ion-row>
+
+    <!-- <input class = "hm_signup_input" placeholder = "Write a thank you note"> -->
+    <!-- <ion-input type="text"placeholder = "Write a thank you note"></ion-input> -->
+   
+  <!-- <ion-label stacked>Write a thank you note</ion-label> -->
+
+       
+      
+ </ion-content>
+ <ion-footer>
+    <ion-input  [(ngModel)]="coment" style="font-size: 23px;" type="text" placeholder="Write a thank you note"></ion-input>
+    <!-- <button class = "btnStyle">DONE</button> -->
+    <button class = "btnStyle"  ion-button full  (click) = "feedback()" >DONE</button>
+  </ion-footer>
+  

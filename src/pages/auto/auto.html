@@ -1,0 +1,225 @@
+<ion-header class = "hm_bg_color hm_header">
+  <div class = "hm_search_header">
+    <ion-icon class = "backicon button icon-left ion-chevron-left button-clear button-dark backicon" name = "arrow-dropleft-circle" (click) = "goBack()" style = "font-family: Ionicons;font-size: 26px;
+    padding: 4px 0px 4px 10px;
+    color: #D0D0D0;"></ion-icon>
+    <div class = "helpytop1" style = "width: 28%;">
+      <img src = "assets/img/helpywhite.png">
+      <span style = "float: right; color: #D0D0D0; font-size: 20px; font-weight: 400;">Auto</span>
+    </div>
+  </div>
+  <!--<button ion-button class="hm_header_btn hm_float_left hm_back_icon" (click)="goBack()"></button>
+  <div class="hm_search_header">
+        <span style="font-size:16px;">  <b> Helpy Auto </b> </span>
+      </div>-->
+  <!-- <span>
+        <img src="assets/img/genders.png">
+      </span> -->
+  <button ion-button class = "hm_header_btn hm_float_right hm_search_icon" (click) = goToHistory()>
+    <img src = "assets/img/history.png">
+  </button>
+  <div class = "hm_clear"></div>
+</ion-header>
+<ion-content class = "hm_sign_bg">
+  <div class = "hm_services">
+    <div class = "hm_service_list" style = "height:100%;width:100%;overflow:auto;">
+      <div class = "hm_ad_wrap">
+        <ion-slides pager = "true" #mySlider>
+          <!-- <ion-slide (click)="recommended()"> -->
+          <ion-slide>
+            <img [src] = "'http://www.huallow.com/helpy/assets/media/' + banner[0].media_image">
+          </ion-slide>
+          <!-- <ion-slide (click)="recommended()"> -->
+          <ion-slide>
+            <img [src] = "'http://www.huallow.com/helpy/assets/media/' + banner[1].media_image">
+          </ion-slide>
+          <!-- <ion-slide>
+              <img src="assets/img/hm_shop_banner2.jpeg">
+            </ion-slide> -->
+        </ion-slides>
+      </div>
+      <!-- <ion-card text-center>
+            <ion-item style="margin-top:0px;">
+              <ion-label>Select Location</ion-label>
+              <ion-select [(ngModel)]="location">
+                <ion-option value="a">Kuala Kualumpur</ion-option>
+                <ion-option value="b">Petaling Jaya</ion-option>
+                <ion-option value="c">Cheras</ion-option>
+                <ion-option value="d">Shah Alam</ion-option>
+                <ion-option value="e">Subang Jaya</ion-option>
+                <ion-option value="f">Damansara</ion-option>
+                <ion-option value="g">Klang</ion-option>
+                <ion-option value="m">Kelana Jaya</ion-option>
+              </ion-select>
+            </ion-item>
+          </ion-card> -->
+
+
+      <!--<ion-row>
+        <ion-col *ngFor = 'let value of SubMenuAuto; trackBy: index;' style = "border:1px solid gray;" class = "hm_border_top_none hm_border_left_none" style = " text-align: center;">
+          <div class = "hm_service_div" (click) = "showMoreAuto(value)">
+            <img src = "{{value.category_image}}">
+            <p>{{value.category_name}}</p>
+          </div>
+        </ion-col>
+      </ion-row>
+-->
+
+
+
+
+      <ul>
+       <div>
+          <ul> 
+
+<!-- <li *ngFor = 'let value of SubMenuAuto; trackBy: index;' class="btnadd1" style=" width: 50% !important;">
+              <div class = "hm_service_div autobox" (click) = "showMoreAuto(value)" style = " height: auto!important;
+    font-size: 10px !important;">
+                <img class="autoimg" src = "{{value.category_image}}">
+                <p style = "text-align: left;
+    color: #ffffff !important;
+    margin: 0px;
+    font-size: 13px;
+    margin-left: 46px;
+    padding-top: 8px;
+    margin-top: -4px;"> {{value.category_name}}</p>
+              </div>
+            
+            </li> -->
+            <!-- (click) = "showMoreAuto(SubMenuAuto1)" -->
+            <li class="btnadd1" style=" width: 50% !important;">
+              <div class = "hm_service_div autobox"  style = " height: auto!important;
+    font-size: 10px !important;">
+              <img class="autoimg" src = "{{SubMenu?.category_image}}">
+                <ion-select [(ngModel)]="gender" (ionChange) = "showMoreChildAutomodi($event)">
+                  <!-- <ion-option value="f">{{SubMenuAuto1?.sub_categories[0].category_name}}</ion-option>
+                  <ion-option value="m">{{SubMenuAuto1?.sub_categories[1].category_name}}</ion-option> -->
+                  <ion-option *ngFor="let subChild of SubMenuAuto1" ng-option value="{{subChild.id}}" (select) = "showMoreChildAuto(subChild)"> {{subChild.category_name}}</ion-option>
+                </ion-select>
+                <p class="washLabel">Wash</p> <!--  {{SubMenuAuto1?.category_name}} -->
+                   
+              </div>
+            
+            </li>
+
+            <li  class="btnadd1" style=" width: 50% !important;">
+              <div class = "hm_service_div autobox" (click) = "showMoreAuto(SubMenuAuto2)" style = " height: auto!important;
+    font-size: 10px !important;">
+                <img class="autoimg" src = "{{SubMenuAuto2?.category_image}}">
+                <p style = "text-align: left;
+                    color: #ffffff !important;
+                    margin: 0px;
+                    font-size: 13px;
+                    margin-left: 46px;
+                    padding-top: 8px;
+                    margin-top: -4px;"> {{SubMenuAuto2?.category_name}}</p>
+              </div>
+            
+            </li>
+</ul>
+
+        </div>
+<div style="clear: both;"></div>
+
+      </ul>
+      <div *ngIf ="showhidewash" class="washsubname">
+        {{name}}
+      </div>
+      <br>
+
+
+<!--
+
+      <div *ngIf = "showHideAuto" text-center>
+
+
+
+<ion-row>
+      <ion-list style = "width: 100%;padding: 0px 6px;">
+        <ion-icon ios="ios-car" md="md-car" style = "font-family: Ionicons!important;    font-size: 24px;  float: left;    color: #3b3b3b;font-weight: bolder;"></ion-icon>&nbsp;
+        <span style = "    margin-top: 3px;
+    float: left;margin-left: 10px;
+    font-size: 1.5rem;">Select Vehicles Type</span>
+      </ion-list>
+    </ion-row>
+
+
+
+    <ion-row>
+      <ion-item>
+        <ion-label>Vehicle</ion-label>
+        <ion-select ng-model="showMoreChildAuto(subChild)">
+        <ion-option *ngFor="let subChild of subChildAuto" ng-option value="{{subChild.category_name}}" (select) = "showMoreChildAuto(subChild)"> {{subChild.category_name}}</ion-option>
+          
+         
+          
+        </ion-select>
+      </ion-item>
+    </ion-row>
+          </div>
+         
+-->
+
+   <ion-row>
+          <ion-col *ngFor = 'let subChild of subChildAuto; trackBy: index;' class = "hm_border_top_none hm_border_left_none" style = "  text-align: center;">
+            <div class = "hm_service_div" (click) = "showMoreChildAuto(subChild)">
+              <img src = "{{subChild.category_image}}">
+              <p text-wrap> {{subChild.category_name}} </p>
+            </div>
+          </ion-col>
+        </ion-row>
+
+
+      <div style = "clear:both">
+      </div>
+      <div *ngIf = "showHideAutoChild" ng-show="showMoreChildAuto(subChild)">
+        <div style = "width: 100%;height: 120px;">
+          <ul [hidden] = "dontShowPlusButtons" style = "width: 100%;    padding: 0px 0px 0px;" text-center>
+            <li *ngFor = 'let subSub of subSubChildAuto; trackBy: index; let i =index '>
+              <div class = "hm_service_div subproductcustom">
+                <!-- <img src = "{{subSub.product_image}}"> -->
+                <label>
+                  <input type="checkbox" name="chbk" value="small" />
+                  <img src = "{{subSub.product_image}}" (click)="selectpro(subSub)">
+                  </label>
+                <p> {{subSub.product_name}} </p>
+              </div>
+              <!-- <button class = "hm_service_btn" (click) = "add(subSub)">+</button>
+              {{subSub.qty}}
+              <button class = "hm_service_btn" (click) = "sub(subSub)">-</button> -->
+            </li>
+          </ul>
+          <ul [hidden] = "!dontShowPlusButtons" style = " width: 100%;padding: 18px;">
+            <li *ngFor = 'let subSub of inHouseService; let i= index; trackBy: index;' (click) = "addThisItem($event,subSub)">
+              <div class = "hm_service_div">
+                <img src = "{{subSub.product_image}}">
+                <p> {{subSub.product_name}} </p>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div style = "clear:both">
+      </div>
+    </div>
+  </div>
+</ion-content>
+<ion-footer>
+  <ion-toolbar>
+    <ion-list class="list-md1">
+      <ion-item text-wrap>
+        <span>
+          <img src = "assets/img/cart.png" style = "height:30px;width:30px;"> With Tool Total Price
+          <b>RM {{price}}.00 </b>
+        </span>
+      </ion-item>
+      <button *ngIf = 'enableNextBtn==true' ion-button full style = "background-color:#EA5192" (click) = "summary()">
+        Next
+      </button>
+      <button *ngIf = 'enableNextBtn!=true' disabled ion-button full style = "background-color:#EA5192">
+        Next
+      </button>
+    </ion-list>
+  </ion-toolbar>
+</ion-footer>
+  

@@ -1,0 +1,133 @@
+<ion-header class = "hm_bg_color hm_header">
+  <div class = "hm_search_header">
+    <ion-icon class = "backicon button icon-left ion-chevron-left button-clear button-dark backicon" name = "arrow-dropleft-circle"
+            (click) = "goBack()" style = "font-family: Ionicons;font-size: 26px;
+    padding: 4px 0px 4px 10px;
+    color: #D0D0D0;"></ion-icon>
+    <div class = "helpytop1" style = "    width: 42%;">
+      <img src = "assets/img/helpywhite.png">
+      <span style = "float: right; color: #D0D0D0; font-size: 21px; font-weight: 400;    margin-top: 1px;">Clean</span>
+    </div>
+  </div>
+  <!-- <span>
+  =======
+    <button ion-button class="hm_header_btn hm_float_left hm_back_icon" (click)="goBack()"></button>
+    <div class="hm_search_header">
+      <span style="font-size:16px;">
+        <b> Helpy Clean </b>
+      </span>
+    </div>
+    <!-- <span>
+  >>>>>>> d60315c282aa3f80f3393d23a73db8c1fbce0b32
+        <img src="assets/img/genders.png">
+      </span> -->
+  <!--<button ion-button class="hm_header_btn hm_float_right hm_search_icon" (click)=goToHistory()>
+    <img src="assets/img/history.png">
+  </button>-->
+  <div class = "hm_clear"></div>
+</ion-header>
+<ion-content class = "hm_sign_bg">
+  <div class = "hm_services">
+    <div class = "hm_service_content">
+      <div class = "hm_service_list" style = "height:100%;width:100%;overflow:auto;" text-center>
+        <ion-row>
+          <ion-col *ngFor = 'let value of SubMenuClean; trackBy: index;' style = "border:1px solid gray;" class = "hm_border_top_none hm_border_left_none"
+                  style = "margin-left: 5px;">
+            <div class = "hm_service_div cleantop" [class.active] = "maincat==value.id" (click) = "showMore(value)"> 
+              <img src = "{{value.category_image}}">
+              <p>{{value.category_name}}</p>
+            </div>
+          </ion-col>
+        </ion-row>
+        <div *ngIf = "showHideClean" text-center>
+          <ion-row>
+            <ion-col *ngFor = 'let subChild of subChildClean; trackBy: index;' class = "hm_border_top_none hm_border_left_none" style = "margin-left: 5px;">
+              <div class = "hm_service_div" (click) = "showMoreChild(subChild)">
+                <img src = "{{subChild.category_image}}">
+                <p text-wrap> {{subChild.category_name}} </p>
+              </div>
+            </ion-col>
+          </ion-row>
+        </div>
+        <div style = "clear:both"></div>
+
+
+
+
+
+        <div *ngIf = "showHideCleanChild">
+           <ion-title style = "margin: 0px 0 15px 0px;">In-House Section</ion-title>
+          <div class = "clean-child-divul" style = "width: 100%;height: 120px; margin: 0px auto;" text-center>
+            <ul [hidden] = "dontShowPlusButtons" style = "width: 100%;padding: 0px 5px;" text-center *ngIf = "!showno">
+              <li *ngFor = 'let subSub of subSubChildClean; trackBy: index; let i =index '>
+                <div class = "hm_service_div subproductcustom">
+                  <img src = "{{subSub.product_image}}" class="cleanchota">
+                  <p class="cleanp"> {{subSub.product_name}} </p>
+                </div>
+                <div class="plusminus">
+                  <button class = "hm_service_btn" (click) = "add(subSub)" style = "float: left;">+</button>
+                  <span style = "padding-left: 4px; padding-right: 4px;">{{subSub.qty}}</span>
+                  <button class = "hm_service_btn" (click) = "sub(subSub)" style = "float: right;">-</button>
+                </div>
+              </li>
+            </ul>
+            <ul [hidden] = "dontShowPlusButtons" style = "width: 100%;padding: 0px 5px;" text-center *ngIf = "showno">
+              <li *ngFor = 'let subSub of subSubChildClean; trackBy: index; let i =index '>
+                <div class = "hm_service_div subproductcustom" [class.active] = "subSub.select" (click) = "onlyclick(subChildx)">
+                  <img src = "{{subSub.product_image}}">
+                  <p> {{subSub.product_name}} </p>
+                </div>
+                <!-- <div style="border: 0.5px solid #D6D4D7; display: inline-block; border-radius: 2px;">
+                  <button class="hm_service_btn" (click)="add(subSub)" style="float: left;">+</button>
+                  <span style="padding-left: 4px; padding-right: 4px;">{{subSub.qty}}</span>
+                  <button class="hm_service_btn" (click)="sub(subSub)" style="float: right;">-</button>
+                </div> -->
+              </li>
+            </ul>
+            <ul [hidden] = "!dontShowPlusButtons" style = "width: 100%;padding: 10px;">
+              <li *ngFor = 'let subSub of inHouseService; let i= index; trackBy: index;' (click) = "addThisItem($event, subSub)">
+                <div class = "hm_service_div">
+                  <img src = "{{subSub.product_image}}">
+                  <p> {{subSub.product_name}} </p>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div style = "clear:both"></div>
+        <div class = "shwservices" *ngIf = "showservices" text-center>
+          <ion-title style = "margin: 0px 0 15px 0px;">In-House Services</ion-title>
+          <ion-row class = "lvl3row">
+            <ion-col *ngFor = 'let subChildx of extraservices; trackBy: index;' class = "hm_border_top_none hm_border_left_none lvl3col"
+                    style = "margin-left: 5px;">
+              <div class = "hm_service_div" [class.active] = "subChildx.select" (click) = "onlyclick(subChildx)">
+                <!-- (click)="subChildx.select ? $event.stopPropagation(): addextra(subChildx);subChildx.select ? false :null " -->
+                <img src = "{{subChildx.product_image}}">
+                <p text-wrap> {{subChildx.product_name}} </p>
+              </div>
+            </ion-col>
+          </ion-row>
+        </div>
+        <!-- </ion-card> -->
+      </div>
+    </div>
+  </div>
+</ion-content>
+<ion-footer>
+  <ion-toolbar>
+    <ion-list class="list-md1">
+      <ion-item text-wrap>
+        <span>
+          <img src = "assets/img/cart.png" style = "height:30px; width:30px;"> Total Price
+          <b>RM {{price}}.00 </b>(est. {{totalHours }} hours)
+        </span>
+      </ion-item>
+      <button *ngIf = 'enableNextBtn==true' ion-button full style = "background-color:#EA5192" (click) = "orderInfo()">
+        Next
+      </button>
+      <button *ngIf = 'enableNextBtn!=true' disabled ion-button full style = "background-color:#EA5192" (click) = "orderInfo()">
+        Next
+      </button>
+    </ion-list>
+  </ion-toolbar>
+</ion-footer>

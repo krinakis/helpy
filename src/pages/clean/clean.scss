@@ -1,0 +1,115 @@
+page-clean {
+    .hm_service_div.active p {
+        color      : #A8387B !important;
+        font-size  : 10px;
+        transition : font-size 0.2s linear;
+    }
+    .subproductcustom.active {
+        color     : #A8387B !important;
+        font-size : 10px;
+    }
+    .lvl3row {
+        flex-wrap      : wrap;
+        padding-bottom : 20px;
+    }
+
+
+
+    .lvl3col {
+      
+       flex: none;
+    width: 31% !important;
+    padding: 5px !important;
+    list-style: none;
+    margin: 2px auto;
+    border: 1px solid #CACACA !important;
+    background: white;
+    text-align: -webkit-center;
+    }
+    .lvl3col p {
+        margin-bottom : 0;
+    }
+    .lvl3col .hm_service_div {
+        height : auto !important;
+    }
+    .shwservices ion-title .toolbar-title-md {
+        font-size : 16px;
+    }
+    .hm_service_list .clean-child-divul ul li {
+        width : 100% !important;
+        border-bottom: 1px solid #c9c9c9;
+    }
+
+    .subproductcustom{    width: 24%!important;
+    font-size: 10px !important;
+    float: left!important;
+    height: auto !important;
+    padding: 5px 0px;
+    }
+
+.cleantop{    height: 90px !important;}
+    .hm_service_list {
+    width: 100%;
+    position: absolute;
+    top: 65px;
+    text-align: left;
+    margin-top: -65px !important;
+}
+
+.plusminus{border: 1px solid #a5a5a5;
+    display: inline-block;
+    border-radius: 2px;
+    box-shadow: 0px 2px 1px 1px #b6b6b6;
+    width: 33%;
+    float: right;
+    font-size: 18px;
+    margin-top: 24px}
+
+    .cleanchota{width: 48px!important;}
+.cleanp{color: #6C6C6C;
+    text-align: center;
+    margin: 0px;
+    font-size: 12px;
+    padding-top: 2px!important;
+    padding-bottom: 2px!important;}
+
+    .hm_service_list ul li{    padding: 0px 25px !important;}
+.hm_service_btn {
+    color: #FFF;
+    background: #F9AE3E;
+    border-radius: 20px;
+    height: 25px!important;
+    padding-left: 8px;
+    padding-right: 8px;
+    text-align: center;
+    font-size: 18px !important;
+    font-weight: 500;
+
+
+    color: #686669 !important;
+    background: #F5F5F5 !important;
+    border-radius: 2px !important;
+    height: 25px !important;
+    padding-left: 8px;
+    padding-right: 8px;
+    text-align: center !important;
+    font-size: 18px !important;
+    border: 0.5px solid #a5a5a5;
+    margin-top: -1px;
+    z-index: 10;
+    margin-left: -1px;
+}
+
+.shwservices{    background: white;
+    padding: 5px 5px;}
+
+    .toolbar-title {
+    padding: 6px 10px;
+    font-size: 1.5rem;
+    text-align: left;
+    background: #162d38;
+    color: white;
+    font-weight: 500;
+}
+
+}

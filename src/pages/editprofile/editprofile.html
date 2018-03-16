@@ -1,0 +1,108 @@
+<ion-header class = "hm_bg_color hm_header">
+  <button ion-button class = "hm_header_btn hm_float_left hm_back_icon" (click) = "goback()"></button>
+  <div class = "hm_search_header">
+    Edit Profile
+  </div>
+  <div class = "hm_clear"></div>
+</ion-header>
+<ion-content padding class = "hm_sign_bg">
+  <div class = "hm_service_listing" style = "padding-top:10px;">
+    <!-- <button ion-button style="float:right" (click)="settingsPage()">Settings</button>   -->
+    <div class = "hm_myprofile_photo" (click) = "changeProfilePic()" *ngIf = 'data.userimage== ""'>
+      <img src = "assets/img/hm_profile_photo.png">
+      <div class = "hm_edit_circle">
+        <img src = "assets/img/hm_edit_circle.png">
+      </div>
+    </div>
+   <div class = "hm_myprofile_photo" (click) = "changeProfilePic()" *ngIf = 'data.userimage != ""'>
+      <img src = {{data.userimage}} onError = "this.src='assets/img/girlImg.jpeg'">
+      <div class = "hm_edit_circle">
+        <img src = "assets/img/hm_edit_circle.png">
+      </div>
+    </div>
+
+    <br>
+    <br>
+    <div class = "hm_newaddress_field">
+      <ul>
+        <li>
+          <input class = "hm_new_input" placeholder = "User name" value = "{{data.username}}" [(ngModel)] = "data.username">
+        </li>
+        <li>
+          <input class = "hm_new_input" placeholder = "user@gmail.com" value = "{{data.email}}" [(ngModel)] = "data.email">
+        </li>
+        <li>
+          <input class = "hm_new_input" placeholder = "+91 9961531199" value = "{{data.mobile}}" [(ngModel)] = "data.mobile">
+        </li>
+        <li>
+          <input class = "hm_new_input" placeholder = "Address" value = "{{data.address}}" [(ngModel)] = "data.address">
+        </li>
+        <li>
+          <input class = "hm_new_input" placeholder = "City" value = "{{data.city}}" [(ngModel)] = "data.city">
+        </li>
+        <li>
+          <input class = "hm_new_input" placeholder = "State" value = "{{data.state}}" [(ngModel)] = "data.state">
+        </li>
+        <li>
+          <input class = "hm_new_input" placeholder = "Country" value = "{{data.country}}" [(ngModel)] = "data.country">
+        </li>
+        <!--     <li>
+          <input class="hm_new_input" placeholder="New Password" value="{{data1.password}}" [(ngModel)]="data1.password">
+        </li>
+        <li>
+          <input class="hm_new_input" placeholder="Confirm Password" value="{{data1.confirmPwd}}" [(ngModel)]="data1.confirmPwd">
+        </li> -->
+        <li style = "padding-top: 10px;">
+          <div class = "hm_cancel_reason" style = "font-size: 16px;">
+            Gender
+          </div>
+          <div style = "clear:both"></div>
+          <div class = "hm_cancel_radio" style = "padding-left:5px;">
+            <!-- <ion-radio ng-model="choice3" ng-value="'a'"></ion-radio>
+					<label>Male</label>
+					<ion-radio ng-model="choice3" ng-value="'b'"></ion-radio>
+					<label>Female</label> -->
+            <ion-list radio-group [(ngModel)] = "data.gender">
+              <ion-row>
+                <ion-col>
+                  <ion-item>
+                    <ion-radio value = "M"></ion-radio>
+                    <ion-label>Male</ion-label>
+                  </ion-item>
+                </ion-col>
+                <ion-col>
+                  <ion-item>
+                    <ion-radio value = "F"></ion-radio>
+                    <ion-label>Female</ion-label>
+                  </ion-item>
+                </ion-col>
+              </ion-row>
+            </ion-list>
+          </div>
+          <div class = "hm_clear"></div>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class = "hm_clear"></div>
+  
+</ion-content>
+<ion-footer>
+  <div text-center>
+    <br>
+    <div class = "hm_btn_bottom" style = "position: relative;bottom: 50px">
+      <button class = "hm_bottom_save" (click) = "dismiss()">Update
+        <span>
+        <img src = "assets/img/hm_tick.png">
+      </span>
+      </button>
+    </div>
+  </div>
+  <!-- <div class="hm_btn_bottom" style="position: relative;bottom: 50px">
+    <button class="hm_bottom_save" (click)="dismiss()">Update
+      <span>
+        <img src="assets/img/hm_tick.png">
+      </span>
+    </button>
+  </div> -->
+</ion-footer>

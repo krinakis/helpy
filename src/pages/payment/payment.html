@@ -1,0 +1,172 @@
+<ion-header class = "hm_bg_color hm_header">
+  <!-- <button ion-button class="hm_header_btn hm_float_left hm_back_icon" (click)="goBack()"></button>
+  <div class="hm_search_header">
+   <b> Payment</b>
+  </div>-->
+  <div class = "hm_search_header">
+    <ion-icon class = "backicon button icon-left ion-chevron-left button-clear button-dark backicon" name = "arrow-dropleft-circle"
+            (click) = "goBack()" style = "font-family: Ionicons;font-size: 26px;
+    padding: 4px 0px 4px 10px;
+    color: #D0D0D0;"></ion-icon>
+    <div class = "helpytop2" style = "width: 80%">
+      <span style = "color: #D0D0D0;font-size: 14px;font-weight: 400;float: left;margin-top: 6px;">Payment Details</span>
+      <img src = "assets/img/helpywhite.png" style = "width: 30%; float: right;">
+    </div>
+  </div>
+  <div class = "hm_clear"></div>
+</ion-header>
+<ion-content padding disable-scroll>
+  <div class = "hm_service_listing" style = "padding-top:10px;">
+    <ion-row>
+      <ion-list style = "width: 100%;">
+        <ion-icon name = "ios-card-outline" style = "font-family: Ionicons!important;font-size: 27px;  float: left;"></ion-icon>&nbsp;
+        <span style = " margin-top: 6px;float: left;margin-left: 10px;font-size: 1.5rem;">Payment Amount</span>
+        <span style = " float: right; margin-top: 5px;">
+          <strong>RM {{totalPrice}}.00</strong>
+        </span>
+      </ion-list>
+    </ion-row>
+    <div class = "hm_payment_div">
+      <div class = "hm_payment_tab">
+        <ul>
+          <li [class.active] = "tab=='active'" (click) = "tab_swap('active')">
+            <!--span>.</span-->Pay Now
+          </li>
+          <li [class.active] = "tab=='inactive'" (click) = "(service_type == 'mall') ? clicl() : tab_swap('inactive')">
+            <!--span>.</span-->Pay Later
+          </li>
+          <div class = "hm_clear"></div>
+        </ul>
+      </div>
+
+
+      <hr>
+      <div class = "hm_payment_content" [hidden] = "tab=='inactive'">
+        <ion-list radio-group [(ngModel)] = "paymentMode">
+          <ion-item>
+            <ion-label>Credit Card/ Debit Card</ion-label>
+            <ion-radio value = "creditcard" (click) = "payOption(paymentMode)"></ion-radio>
+          </ion-item>
+          <ion-item>
+            <ion-label>Netbanking</ion-label>
+            <ion-radio value = "netbanking" (click) = "payOption(paymentMode)"></ion-radio>
+          </ion-item>
+          <!-- <ion-item>
+            <ion-label>Wallet (Helpy Pay)</ion-label>
+            <ion-radio value = "wallet" (click) = "payOption(paymentMode)"></ion-radio>
+          </ion-item> -->
+        </ion-list>
+        <!-- <ul>
+          <li>
+            <div class="hm_cancel_radio">
+              <ion-radio ng-model="choice3" ng-value="'C'"></ion-radio>
+            </div>
+            <div class="hm_cancel_reason">
+              Credit Card/ Debit Card
+            </div>
+            <div class="hm_clear"></div>
+          </li>
+          <li>
+            <div class="hm_cancel_radio">
+              <ion-radio ng-model="choice3" ng-value="'C'"></ion-radio>
+            </div>
+            <div class="hm_cancel_reason">
+              Netbanking
+            </div>
+            <div class="hm_clear"></div>
+          </li>
+          <li>
+            <div class="hm_cancel_radio">
+              <ion-radio ng-model="choice3" ng-value="'C'"></ion-radio>
+            </div>
+            <div class="hm_cancel_reason">
+              Wallet
+            </div>
+            <div class="hm_clear"></div>
+          </li>
+        </ul> -->
+      </div>
+      <div class = "hm_payment_content" [hidden] = "tab=='active'">
+        <ion-list radio-group [(ngModel)] = "paymentMode">
+          <ion-item>
+            <ion-label>Cash on delivery</ion-label>
+            <ion-radio value = "cod" (click) = "payOption(paymentMode)"></ion-radio>
+          </ion-item>
+        </ion-list>
+        <!-- <ul>
+          <li>
+            <div class="hm_cancel_radio">
+              <ion-radio ng-model="choice3" ng-value="'C'"></ion-radio>
+            </div>
+            <div class="hm_cancel_reason">
+              Cash on delivery
+            </div>
+            <div class="hm_clear"></div>
+          </li>
+
+        </ul> -->
+      </div>
+    </div>
+    <div class = "hm_promo">
+      <input class = "hm_promo_input" [(ngModel)] = "code" placeholder = "Enter Promo Code">
+      <button class = "hm_promo_btn" (click) = applyCoupon()>Apply</button>
+      <div class = "hm_clear"></div>
+    </div>
+    <hr>
+    <div style = "clear: both;"></div>
+    <ion-row>
+      <ion-list style = "width: 100%;">
+        <ion-icon name = "ios-list-outline" style = "font-family: Ionicons!important;font-size: 27px;  float: left;"></ion-icon>&nbsp;
+        <span style = " margin-top: 6px;float: left;margin-left: 10px;font-size: 1.5rem;">Summary</span>
+      </ion-list>
+    </ion-row>
+    <div class = "hm_summary_report">
+      <ul>
+        <li>
+          <div class = "child1">Sub Total</div>
+          <div class = "child2">RM {{totalPrice | number : '1.2-2'}}</div>
+          <div class = "hm_clear"></div>
+        </li>
+        <li>
+          <div class = "child1">Coupon Discount</div>
+          <div class = "child2">-RM {{discount | number : '1.2-2'}}</div>
+          <div class = "hm_clear"></div>
+        </li>
+        <li>
+          <div class = "child1">GST</div>
+          <div class = "child2">RM 0.00</div>
+          <div class = "hm_clear"></div>
+        </li>
+        <br>
+        <li>
+          <div class = "child1">
+            <strong>Total</strong>
+          </div>
+          <div class = "child2">
+            <strong>RM {{discount_price | number : '1.2-2'}}</strong>
+          </div>
+          <div class = "hm_clear"></div>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <br/>
+  
+</ion-content>
+<ion-footer>
+    <ion-item class = "agreement-checkbox">
+        <ion-label class="seefull">By Ordering with Helpy, you agree to the terms and conditions.</ion-label>
+        <ion-checkbox [(ngModel)] = "termsncond"></ion-checkbox>
+      </ion-item>
+  <div class = "hm_btn_bottom">
+    <div class = "hm_allservice_footer">
+      <div class = "hm_amount" style = "border:none;padding-left:15px;">
+        Pay &nbsp;&nbsp;|&nbsp;&nbsp; RM {{discount_price | number : '1.2-2'}}
+      </div>
+      <div class = "hm_service_continue" (click) = "paymentSucces()">
+        {{paymentbtn}}
+      </div>
+      <div class = "hm_clear"></div>
+    </div>
+  </div>
+</ion-footer>

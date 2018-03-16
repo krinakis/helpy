@@ -1,0 +1,42 @@
+<ion-header class = "hm_bg_color hm_header">
+  <button ion-button class = "hm_header_btn hm_float_left hm_back_icon" (click) = "dismiss()"></button>
+  <div class = "hm_search_header">
+    Add address
+  </div>
+  <div class = "hm_clear"></div>
+</ion-header>
+<ion-content padding>
+  <div class = "hm_service_listing" style = "padding-top:10px;">
+    <h6>Add new Address</h6>
+    <div class = "hm_clear"></div>
+    <form [formGroup] = "myForm" (ngSubmit) = "saveAddress(myForm.value)">
+      <div class = "hm_newaddress_field">
+        <ul>
+          <li>
+            <input class = "hm_new_input" placeholder = "Building / House / Flat No" formControlName = "Building" name = "Building">
+          </li>
+          <li>
+            <input class = "hm_new_input" placeholder = "Street" formControlName = "Street" name = "Street">
+          </li>
+          <li>
+            <input class = "hm_new_input" placeholder = "City" formControlName = "City" name = "City">
+          </li>
+          <li>
+            <input class = "hm_new_input" placeholder = "State" formControlName = "State" name = "State">
+          </li>
+          <li>
+            <input class = "hm_new_input" placeholder = "Zip" formControlName = "ZipCode" name = "ZipCode">
+          </li>
+        </ul>
+      </div>
+      <div class = "hm_btn_bottom">
+        <button class = "hm_bottom_save">Save<span><img src = "assets/img/hm_tick.png"></span></button>
+      </div>
+    </form>
+  </div>
+</ion-content>
+<!-- <ion-footer>
+	<div class="hm_btn_bottom" >
+		<button class="hm_bottom_save">Save<span><img src="assets/img/hm_tick.png"></span></button>
+	</div>
+</ion-footer> -->

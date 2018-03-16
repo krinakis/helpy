@@ -1,0 +1,30 @@
+<ion-header class = "hm_bg_color hm_header">
+  <div class = "hm_search_header">
+    <ion-icon class = "backicon button icon-left ion-chevron-left button-clear button-dark backicon" name = "arrow-dropleft-circle"
+            (click) = "goBack()" style = "font-family: Ionicons;font-size: 26px; padding: 4px 0px 4px 10px;
+    color: #D0D0D0;"></ion-icon>
+    <div class = "helpytop1">
+      <img src = "assets/img/helpywhite.png">
+      <span style = "color: #D0D0D0; font-size: 9px; font-weight: 600;">{{shopname}}</span>
+    </div>
+  </div>
+  <div class = "hm_clear"></div>
+</ion-header>
+
+
+<ion-content>
+
+    <div>
+        <img src = "{{a?.product_image}}">
+      </div>
+    <span><strong>Product name:</strong> {{a?.product_name}}</span><br>
+    <span><strong>Product price:</strong> {{a?.product_price}}</span><br>
+    <!-- <span><strong>Product_desc:</strong> {{a?.product_desc}}</span> -->
+    <p [innerHTML]="html"></p>
+     
+    
+  
+  
+
+</ion-content>
+
